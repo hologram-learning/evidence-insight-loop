@@ -167,7 +167,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           }
         />
         <main id="workspace" className="app-main">
-          {children}
+          <div className="app-main__inner">{children}</div>
         </main>
       </div>
 

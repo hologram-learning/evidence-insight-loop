@@ -539,7 +539,7 @@ body {
 /* Mastery cells: letter + label + non-colour marker. */
 .grid-plane { width: 100%; border-collapse: separate; border-spacing: 0; }
 .grid-plane table { border-collapse: separate; border-spacing: 0; width: 100%; }
-.plane-scroll { overflow-x: auto; max-width: 100%; }
+.plane-scroll { overflow: auto; max-width: 100%; max-height: min(58vh, 620px); }
 .housing, .housing-inner, .planes > * { min-width: 0; }
 .grid-plane th,
 .grid-plane td {

@@ -120,19 +120,18 @@ body {
 /* Deep instrument housing: a mounted frame rather than a floating card. */
 @utility housing {
   position: relative;
-  background: var(--bg-sunken);
-  border: 1px solid var(--border);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--r-xl);
-  padding: var(--s-12);
   box-shadow: var(--shadow-xs);
 }
 
 @utility housing-inner {
-  background: var(--bg-elevated);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--r-lg);
-  box-shadow: var(--shadow-sm);
+  background: transparent;
+  border: 0;
+  border-radius: var(--r-xl);
 }
+
 
 /* Inset plane, used for artifacts and printed evidence. */
 @utility inset-plane {

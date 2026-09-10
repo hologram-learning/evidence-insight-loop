@@ -25,6 +25,7 @@ import { Route as Char91__mockupChar93PreviewSplatRouteImport } from './routes/[
 import { Route as Char91__componentChar93PreviewSplatRouteImport } from './routes/[__component].preview.$'
 import { Route as AppCoursesCourseSlugRosterRouteImport } from './routes/app.courses.$courseSlug.roster'
 import { Route as AppCoursesCourseSlugOverviewRouteImport } from './routes/app.courses.$courseSlug.overview'
+import { Route as AppCoursesCourseSlugAssignmentsRouteImport } from './routes/app.courses.$courseSlug.assignments'
 import { Route as AppCoursesCourseSlugStudentsStudentSlugRouteImport } from './routes/app.courses.$courseSlug.students.$studentSlug'
 
 const ThankYouRoute = ThankYouRouteImport.update({
@@ -111,6 +112,12 @@ const AppCoursesCourseSlugOverviewRoute =
     path: '/courses/$courseSlug/overview',
     getParentRoute: () => AppRoute,
   } as any)
+const AppCoursesCourseSlugAssignmentsRoute =
+  AppCoursesCourseSlugAssignmentsRouteImport.update({
+    id: '/courses/$courseSlug/assignments',
+    path: '/courses/$courseSlug/assignments',
+    getParentRoute: () => AppRoute,
+  } as any)
 const AppCoursesCourseSlugStudentsStudentSlugRoute =
   AppCoursesCourseSlugStudentsStudentSlugRouteImport.update({
     id: '/courses/$courseSlug/students/$studentSlug',
@@ -133,6 +140,7 @@ export interface FileRoutesByFullPath {
   '/app/': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
+  '/app/courses/$courseSlug/assignments': typeof AppCoursesCourseSlugAssignmentsRoute
   '/app/courses/$courseSlug/overview': typeof AppCoursesCourseSlugOverviewRoute
   '/app/courses/$courseSlug/roster': typeof AppCoursesCourseSlugRosterRoute
   '/app/courses/$courseSlug/students/$studentSlug': typeof AppCoursesCourseSlugStudentsStudentSlugRoute
@@ -151,6 +159,7 @@ export interface FileRoutesByTo {
   '/app': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
+  '/app/courses/$courseSlug/assignments': typeof AppCoursesCourseSlugAssignmentsRoute
   '/app/courses/$courseSlug/overview': typeof AppCoursesCourseSlugOverviewRoute
   '/app/courses/$courseSlug/roster': typeof AppCoursesCourseSlugRosterRoute
   '/app/courses/$courseSlug/students/$studentSlug': typeof AppCoursesCourseSlugStudentsStudentSlugRoute
@@ -171,6 +180,7 @@ export interface FileRoutesById {
   '/app/': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
+  '/app/courses/$courseSlug/assignments': typeof AppCoursesCourseSlugAssignmentsRoute
   '/app/courses/$courseSlug/overview': typeof AppCoursesCourseSlugOverviewRoute
   '/app/courses/$courseSlug/roster': typeof AppCoursesCourseSlugRosterRoute
   '/app/courses/$courseSlug/students/$studentSlug': typeof AppCoursesCourseSlugStudentsStudentSlugRoute
@@ -192,6 +202,7 @@ export interface FileRouteTypes {
     | '/app/'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
+    | '/app/courses/$courseSlug/assignments'
     | '/app/courses/$courseSlug/overview'
     | '/app/courses/$courseSlug/roster'
     | '/app/courses/$courseSlug/students/$studentSlug'
@@ -210,6 +221,7 @@ export interface FileRouteTypes {
     | '/app'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
+    | '/app/courses/$courseSlug/assignments'
     | '/app/courses/$courseSlug/overview'
     | '/app/courses/$courseSlug/roster'
     | '/app/courses/$courseSlug/students/$studentSlug'
@@ -229,6 +241,7 @@ export interface FileRouteTypes {
     | '/app/'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
+    | '/app/courses/$courseSlug/assignments'
     | '/app/courses/$courseSlug/overview'
     | '/app/courses/$courseSlug/roster'
     | '/app/courses/$courseSlug/students/$studentSlug'
@@ -364,6 +377,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppCoursesCourseSlugOverviewRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/courses/$courseSlug/assignments': {
+      id: '/app/courses/$courseSlug/assignments'
+      path: '/courses/$courseSlug/assignments'
+      fullPath: '/app/courses/$courseSlug/assignments'
+      preLoaderRoute: typeof AppCoursesCourseSlugAssignmentsRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/courses/$courseSlug/students/$studentSlug': {
       id: '/app/courses/$courseSlug/students/$studentSlug'
       path: '/courses/$courseSlug/students/$studentSlug'
@@ -376,6 +396,7 @@ declare module '@tanstack/react-router' {
 
 interface AppRouteChildren {
   AppIndexRoute: typeof AppIndexRoute
+  AppCoursesCourseSlugAssignmentsRoute: typeof AppCoursesCourseSlugAssignmentsRoute
   AppCoursesCourseSlugOverviewRoute: typeof AppCoursesCourseSlugOverviewRoute
   AppCoursesCourseSlugRosterRoute: typeof AppCoursesCourseSlugRosterRoute
   AppCoursesCourseSlugStudentsStudentSlugRoute: typeof AppCoursesCourseSlugStudentsStudentSlugRoute
@@ -383,6 +404,7 @@ interface AppRouteChildren {
 
 const AppRouteChildren: AppRouteChildren = {
   AppIndexRoute: AppIndexRoute,
+  AppCoursesCourseSlugAssignmentsRoute: AppCoursesCourseSlugAssignmentsRoute,
   AppCoursesCourseSlugOverviewRoute: AppCoursesCourseSlugOverviewRoute,
   AppCoursesCourseSlugRosterRoute: AppCoursesCourseSlugRosterRoute,
   AppCoursesCourseSlugStudentsStudentSlugRoute:

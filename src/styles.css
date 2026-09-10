@@ -515,7 +515,8 @@ body {
 /* Mastery cells: letter + label + non-colour marker. */
 .grid-plane { width: 100%; border-collapse: separate; border-spacing: 0; }
 .grid-plane table { border-collapse: separate; border-spacing: 0; width: 100%; }
-.plane-scroll { overflow-x: auto; }
+.plane-scroll { overflow-x: auto; max-width: 100%; }
+.housing, .housing-inner, .planes > * { min-width: 0; }
 .grid-plane th,
 .grid-plane td {
   padding: var(--s-6) var(--s-8);

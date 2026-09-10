@@ -49,7 +49,7 @@ function PatternConsole() {
               <span className="micro-label">Mastery by standard · {rows.length} learners</span>
               <MasteryLegend />
             </div>
-            <table className="grid-plane">
+            <div className="plane-scroll"><table className="grid-plane">
               <thead>
                 <tr>
                   <th scope="col">Learner</th>
@@ -86,7 +86,7 @@ function PatternConsole() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table></div>
           </div>
         </Housing>
 

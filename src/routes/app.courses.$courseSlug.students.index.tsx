@@ -64,7 +64,7 @@ function StudentsPage() {
         </div>
       ) : (
         <Housing className="stack-16">
-          <table className="grid-plane">
+          <div className="plane-scroll"><table className="grid-plane">
             <thead>
               <tr>
                 <th scope="col">Learner</th>
@@ -103,7 +103,7 @@ function StudentsPage() {
                 </tr>
               ))}
             </tbody>
-          </table>
+          </table></div>
         </Housing>
       )}
 

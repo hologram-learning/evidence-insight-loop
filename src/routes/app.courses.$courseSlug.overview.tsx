@@ -127,7 +127,7 @@ function CourseOverview() {
         <Housing>
           <div className="stack-8">
             <span className="micro-label">Named group · 6.EE.A.3</span>
-            <table className="grid-plane">
+            <div className="plane-scroll"><table className="grid-plane">
               <thead>
                 <tr>
                   <th scope="col">Learner</th>
@@ -157,7 +157,7 @@ function CourseOverview() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table></div>
             <Link to="/app/courses/$courseSlug/students" params={{ courseSlug }}>
               View all {course.studentCount} learners
             </Link>

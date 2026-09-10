@@ -1,0 +1,359 @@
+/* Hologram Design System — Core Tokens
+   Typography: ABC Oracle (Dinamo), monospace ABC Oracle Triple.
+   Trial cuts: Medium (500) is synthesized from Regular; Bold ships as WOFF.
+   JetBrains Mono is loaded as a mono fallback via <link> in the app head. */
+
+@font-face { font-family:'ABC Oracle'; src:url('/__l5e/assets-v1/92af9502-6de7-48d3-a112-b542b9272279/ABCOracle-Thin-Trial.otf') format('opentype'); font-weight:100; font-style:normal; font-display:swap; }
+@font-face { font-family:'ABC Oracle'; src:url('/__l5e/assets-v1/f06a6b22-eb5c-47ec-ba6c-67c7074d5730/ABCOracle-Regular-Trial.otf') format('opentype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'ABC Oracle'; src:url('/__l5e/assets-v1/902c0d31-2f6d-4612-ba18-3342a03c03ef/ABCOracle-RegularItalic-Trial.otf') format('opentype'); font-weight:400; font-style:italic; font-display:swap; }
+/* Medium (500) synthesized from Regular — awaiting a true Medium cut */
+@font-face { font-family:'ABC Oracle'; src:url('/__l5e/assets-v1/f06a6b22-eb5c-47ec-ba6c-67c7074d5730/ABCOracle-Regular-Trial.otf') format('opentype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'ABC Oracle'; src:url('/__l5e/assets-v1/510a6890-32de-4456-bafb-9cf0a49864f1/ABCOracle-Bold-Trial.woff') format('woff'); font-weight:700; font-style:normal; font-display:swap; }
+@font-face { font-family:'ABC Oracle'; src:url('/__l5e/assets-v1/dcbdb601-950c-4329-afb3-69cef52dd2cb/ABCOracle-Ultra-Trial.otf') format('opentype'); font-weight:800; font-style:normal; font-display:swap; }
+@font-face { font-family:'ABC Oracle'; src:url('/__l5e/assets-v1/d093b82c-a4ea-4b8a-a7cc-2625e77a8ab6/ABCOracle-UltraItalic-Trial.otf') format('opentype'); font-weight:800; font-style:italic; font-display:swap; }
+
+@font-face { font-family:'ABC Oracle Triple'; src:url('/__l5e/assets-v1/637161ce-a224-4f75-990a-eb5452b070ce/ABCOracleTriple-Regular-Trial.otf') format('opentype'); font-weight:400; font-style:normal; font-display:swap; }
+@font-face { font-family:'ABC Oracle Triple'; src:url('/__l5e/assets-v1/3d6e4550-e9c2-4858-ae79-588cbf4b313c/ABCOracleTriple-Medium-Trial.otf') format('opentype'); font-weight:500; font-style:normal; font-display:swap; }
+@font-face { font-family:'ABC Oracle Triple'; src:url('/__l5e/assets-v1/b5caea2c-1832-4307-a7d9-0f11ec609bc2/ABCOracleTriple-Bold-Trial.otf') format('opentype'); font-weight:700; font-style:normal; font-display:swap; }
+
+:root {
+  /* ---------- Core palette (LOCKED — derived from Hologram brand art) ----------
+     The Hologram mark is a translucent sketchy polyhedron with lavender, periwinkle,
+     mint, and peach facets around a single warm amber focal dot. The system extends
+     those facet hues into "surface zones" that tint persona sidebars, and promotes
+     amber to THE signature attention color. Indigo is reserved for primary actions. */
+
+  --amber:         #F0934F;  /* signature focal accent — logo dot, CTAs, highlights */
+  --indigo:        #6366F1;  /* primary action (softer than last iteration) */
+  --periwinkle:    #8B8CE8;  /* lavender-blue facet — used in surfaces + voice */
+  --mint:          #8DCCB8;  /* mint facet — mastery growth */
+  --peach:         #F3C9B0;  /* peach facet — student sidebar zone */
+  --lilac:         #C7C3E8;  /* lilac facet — admin sidebar zone */
+  --sky:           #BDD9DA;  /* pale teal facet — teacher sidebar zone */
+
+  --paper:         #FBFAF7;  /* page background — warm, never pure white */
+  --ink:           #1A1A2E;  /* body text — never pure black, slightly warm navy */
+
+  /* Text-safe deepened variants for body copy / links on Paper */
+  --indigo-deep:   #4845B8;
+  --mint-deep:     #4C8C72;
+  --amber-deep:    #B25F28;
+
+  /* ---------- Amber ramp (signature) ---------- */
+  --amber-50:      #FEF5EE;
+  --amber-100:     #FCE7D4;
+  --amber-200:     #F9CFAC;
+  --amber-300:     #F5B481;
+  --amber-400:     #F0934F;  /* = --amber */
+  --amber-500:     #E07828;
+  --amber-600:     #B25F28;  /* = --amber-deep */
+  --amber-700:     #8A4A22;
+
+  /* ---------- Indigo ramp (primary action) ---------- */
+  --indigo-50:     #F0F0FC;
+  --indigo-100:    #E2E2F8;
+  --indigo-200:    #C9C9F2;
+  --indigo-300:    #A8A8EC;
+  --indigo-400:    #8B8CE8;  /* = --periwinkle */
+  --indigo-500:    #6366F1;  /* = --indigo */
+  --indigo-600:    #5251D8;
+  --indigo-700:    #4845B8;  /* = --indigo-deep */
+  --indigo-800:    #3A3890;
+  --indigo-900:    #2A2968;
+
+  /* ---------- Mint ramp (mastery / growth) ---------- */
+  --mint-50:       #F1F8F4;
+  --mint-100:      #DCEEE4;
+  --mint-200:      #BEE0CD;
+  --mint-300:      #9CD0B2;
+  --mint-400:      #8DCCB8;  /* = --mint */
+  --mint-500:      #6DB695;
+  --mint-600:      #4C8C72;  /* = --mint-deep */
+  --mint-700:      #3A6B57;
+
+  /* ---------- Peach ramp (student / warm zone) ---------- */
+  --peach-50:      #FDF7F1;
+  --peach-100:     #F9E9D9;
+  --peach-200:     #F3C9B0;  /* = --peach */
+  --peach-300:     #E8A784;
+  --peach-400:     #D48A63;
+
+  /* ---------- Lilac ramp (admin zone) ---------- */
+  --lilac-50:      #F5F4FB;
+  --lilac-100:     #EBEAF5;
+  --lilac-200:     #C7C3E8;  /* = --lilac */
+  --lilac-300:     #A29CD4;
+
+  /* ---------- Sky ramp (teacher zone) ---------- */
+  --sky-50:        #F2F7F7;
+  --sky-100:       #E0EBEC;
+  --sky-200:       #BDD9DA;  /* = --sky */
+  --sky-300:       #8CBDBF;
+
+  /* ---------- Neutral (Ink) ramp — warm, slightly desaturated navy ---------- */
+  --ink-900:       #1A1A2E;  /* = --ink */
+  --ink-800:       #2A2A42;
+  --ink-700:       #3E3E56;
+  --ink-600:       #5A5A70;
+  --ink-500:       #7A7A8F;
+  --ink-400:       #A0A0B2;
+  --ink-300:       #C8C8D2;
+  --ink-200:       #DEDEE4;
+  --ink-150:       #E9E9ED;
+  --ink-100:       #F2F2F0;
+  --ink-50:        #F7F6F2;
+  --paper-0:       #FBFAF7;  /* = --paper */
+
+  /* ---------- Semantic roles ---------- */
+  --bg:            var(--paper-0);
+  --bg-elevated:   #FFFFFF;
+  --bg-sunken:     var(--ink-50);
+  --bg-muted:      var(--ink-100);
+
+  /* Persona surface zones — the sidebar/nav background for each product area */
+  --zone-student:  var(--peach-50);    /* cream-peach */
+  --zone-teacher:  var(--sky-50);      /* pale sky */
+  --zone-admin:    var(--lilac-50);    /* soft lilac */
+
+  --border:        var(--ink-200);
+  --border-strong: var(--ink-300);
+  --border-subtle: var(--ink-150);
+
+  --fg:            var(--ink-900);
+  --fg-muted:      var(--ink-600);
+  --fg-subtle:     var(--ink-500);
+  --fg-disabled:   var(--ink-400);
+  --fg-on-dark:    var(--paper-0);
+
+  --link:          var(--indigo-deep);
+  --link-active:   var(--indigo);
+
+  --success:       var(--mint-500);
+  --success-fg:    var(--mint-deep);
+  --success-bg:    var(--mint-50);
+  --warning:       var(--amber);
+  --warning-fg:    var(--amber-deep);
+  --warning-bg:    var(--amber-50);
+  --danger:        #D4573D;
+  --danger-fg:     #8A3420;
+  --danger-bg:     #FBEDE7;
+
+  /* ---------- Data-viz categorical (pastel facet palette, never rainbow) ---------- */
+  --dv-1: var(--indigo-500);      /* indigo */
+  --dv-2: var(--mint-500);        /* mint */
+  --dv-3: var(--amber-400);       /* amber */
+  --dv-4: var(--periwinkle);      /* periwinkle */
+  --dv-5: var(--sky-300);         /* sky */
+  --dv-6: var(--peach-300);       /* peach */
+  --dv-7: var(--lilac-300);       /* lilac */
+  --dv-8: var(--indigo-deep);     /* indigo-deep */
+
+  /* Mastery scale — 5-step, pastel, aligned to facet hues */
+  --mastery-0: var(--ink-200);     /* beginning / no data */
+  --mastery-1: var(--peach-300);   /* developing */
+  --mastery-2: var(--amber-300);   /* approaching */
+  --mastery-3: var(--mint-400);    /* proficient */
+  --mastery-4: var(--mint-600);    /* mastered */
+
+  /* ---------- Type ---------- */
+  --font-sans:     'ABC Oracle', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display:  'ABC Oracle', system-ui, sans-serif;
+  --font-mono:     'ABC Oracle Triple', 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --fw-regular:    400;
+  --fw-medium:     500;
+  --fw-bold:       700;  /* reserved for data emphasis */
+
+  /* Fluid type scale (Calm Luxury — generous leading, restrained) */
+  --fs-hero:       clamp(48px, 6.5vw, 88px);
+  --fs-display:    clamp(36px, 4.5vw, 64px);
+  --fs-h1:         clamp(30px, 3.2vw, 44px);
+  --fs-h2:         clamp(24px, 2.4vw, 32px);
+  --fs-h3:         20px;
+  --fs-h4:         18px;
+  --fs-body-lg:    18px;
+  --fs-body:       16px;
+  --fs-body-sm:    14px;
+  --fs-caption:    13px;
+  --fs-micro:      12px;
+
+  --lh-tight:      1.08;
+  --lh-snug:       1.22;
+  --lh-normal:     1.5;
+  --lh-relaxed:    1.65;
+
+  --ls-hero:       -0.022em;
+  --ls-display:    -0.018em;
+  --ls-h1:         -0.014em;
+  --ls-h2:         -0.01em;
+  --ls-body:       -0.003em;
+  --ls-eyebrow:    0.08em;  /* uppercase labels */
+  --ls-mono:       0;
+
+  /* ---------- Spacing (8-based w/ fine grain 2/4/6) ---------- */
+  --s-2:  2px;
+  --s-4:  4px;
+  --s-6:  6px;
+  --s-8:  8px;
+  --s-12: 12px;
+  --s-16: 16px;
+  --s-24: 24px;
+  --s-32: 32px;
+  --s-48: 48px;
+  --s-64: 64px;
+  --s-96: 96px;
+
+  --content-max:   1200px;
+  --hero-max:      1440px;
+
+  /* ---------- Radii ---------- */
+  --r-sm:  4px;
+  --r-md:  6px;
+  --r-lg:  10px;
+  --r-xl:  14px;
+  --r-2xl: 20px;
+  --r-pill: 999px;
+
+  /* ---------- Elevation (warm shadows — no harsh drops) ---------- */
+  --shadow-xs: 0 1px 2px rgba(26, 26, 46, 0.03);
+  --shadow-sm: 0 1px 2px rgba(26, 26, 46, 0.04), 0 1px 3px rgba(26, 26, 46, 0.05);
+  --shadow-md: 0 2px 4px rgba(26, 26, 46, 0.04), 0 4px 12px rgba(26, 26, 46, 0.05);
+  --shadow-lg: 0 8px 24px rgba(26, 26, 46, 0.07), 0 2px 6px rgba(26, 26, 46, 0.04);
+  --shadow-xl: 0 20px 48px rgba(26, 26, 46, 0.09), 0 4px 12px rgba(26, 26, 46, 0.05);
+  --shadow-focus: 0 0 0 3px rgba(99, 102, 241, 0.28);
+  --shadow-amber-glow: 0 8px 32px rgba(240, 147, 79, 0.22);
+
+  /* ---------- Motion (four named curves) ---------- */
+  --ease-settle:  cubic-bezier(0.22, 1, 0.36, 1);  /* default */
+  --ease-enter:   cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-exit:    cubic-bezier(0.4, 0, 1, 1);
+  --ease-linear:  linear;
+
+  --dur-instant:  100ms;
+  --dur-micro:    150ms;
+  --dur-fast:     200ms;
+  --dur-normal:   300ms;
+  --dur-slow:     500ms;
+  --dur-dramatic: 800ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-instant: 0ms; --dur-micro: 0ms; --dur-fast: 0ms;
+    --dur-normal: 0ms; --dur-slow: 0ms; --dur-dramatic: 0ms;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- Semantic element styles ---------- */
+html { font-family: var(--font-sans); color: var(--fg); background: var(--bg); }
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-relaxed);
+  letter-spacing: var(--ls-body);
+  color: var(--fg);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.hero, h1.hero {
+  font-family: var(--font-display);
+  font-size: var(--fs-hero);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-hero);
+  color: var(--ink);
+  text-wrap: balance;
+}
+.display {
+  font-family: var(--font-display);
+  font-size: var(--fs-display);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-display);
+  color: var(--ink);
+  text-wrap: balance;
+}
+h1, .h1 {
+  font-family: var(--font-display);
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-h1);
+  color: var(--ink);
+  text-wrap: balance;
+}
+h2, .h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-h2);
+  color: var(--ink);
+  text-wrap: balance;
+}
+h3, .h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  color: var(--ink);
+}
+h4, .h4 {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-medium);
+  line-height: var(--lh-snug);
+  color: var(--ink);
+}
+p { color: var(--fg); line-height: var(--lh-relaxed); text-wrap: pretty; }
+.body-lg { font-size: var(--fs-body-lg); line-height: var(--lh-relaxed); }
+.body    { font-size: var(--fs-body); }
+.body-sm { font-size: var(--fs-body-sm); line-height: var(--lh-normal); }
+.caption { font-size: var(--fs-caption); color: var(--fg-muted); line-height: var(--lh-normal); }
+
+.eyebrow {
+  font-size: var(--fs-micro);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-muted);
+}
+
+.mono, code, kbd, pre {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  letter-spacing: var(--ls-mono);
+}
+code {
+  background: var(--bg-muted);
+  border: 1px solid var(--border-subtle);
+  padding: 1px 6px;
+  border-radius: var(--r-sm);
+  color: var(--ink-800);
+}
+
+.data-value {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-bold);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+
+a {
+  color: var(--link);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in oklch, var(--link), transparent 60%);
+  transition: color var(--dur-fast) var(--ease-settle),
+              text-decoration-color var(--dur-fast) var(--ease-settle);
+}
+a:hover { color: var(--indigo); text-decoration-color: currentColor; }
+a:focus-visible { outline: none; box-shadow: var(--shadow-focus); border-radius: var(--r-sm); }
+
+::selection { background: var(--indigo-100); color: var(--ink); }

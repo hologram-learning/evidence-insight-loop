@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" role="img" aria-label="Hologram">
+  
+  <path d="M12 2 L19 5 L21.5 12 L19.5 19 L12 22 L4.5 19 L2.5 12 Z" fill="#8B8CE8" fill-opacity=".18" stroke="#4845B8" stroke-opacity=".85" stroke-width="1.2" stroke-linejoin="round"></path>
+  <circle cx="12" cy="12" r="1.8" fill="#F0934F"></circle>
+</svg>

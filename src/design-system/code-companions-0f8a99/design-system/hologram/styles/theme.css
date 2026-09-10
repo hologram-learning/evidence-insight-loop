@@ -1,0 +1,5 @@
+/* Hologram Design System — single theme entry point.
+   Import this once in an app to receive fonts, tokens, base element styles,
+   and all component styles. */
+@import "./tokens.css";
+@import "./components.css";

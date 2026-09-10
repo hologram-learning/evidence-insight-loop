@@ -1,0 +1,1580 @@
+{
+  "meta": {
+    "name": "Code Companions",
+    "package": "@ws-4bvz3yy9ll9vnnrq78dn/e10f8cf4-f018-4283-a76e-a7c2ee0ca228",
+    "version": "1.0.0",
+    "framework": "react",
+    "css_framework": "css-variables",
+    "starter_template": "custom_design_system",
+    "theme_files": [
+      "src/design-system/hologram/styles/tokens.css"
+    ],
+    "source_type": "local",
+    "source_manifest": {
+      "#enrichment": "b3324967f00ed850cafc8fae55ad6dba0481d008ea3ae693060408ca125971c7",
+      ".dsignore": "2c7d76468c15bc0f1499420154f01ae3",
+      ".gitignore": "6059213806e442947666752f3db6bfdc",
+      ".lovable/meta.yaml": "d1f4edf35a22268edbfbdaca9f21c0f1",
+      ".lovable/plan/hologram-design-system-starter-tokens-and-components-2026-09-08.md": "e3a38db514e9e522946953c7f480b19b",
+      ".lovable/sources.yaml": "aa43d87254623f7331b9d66c8dfba7f7",
+      ".lovable/system.md": "ff1ab08684fe59b956211bda6635fc31",
+      "README.md": "d19675c449605f23c7cfa133c69b398b",
+      "bunfig.toml": "25f4c8696b22b0943db7191e0cdf7942",
+      "eslint.config.js": "07a67437fb1a45ab36d6de0145ff09de",
+      "lovable.toml": "9636c1bf32f9901bfba4eabb92981217",
+      "mockupPreviewPlugin.ts": "8024d439734f27417621536969f64db1",
+      "package.json": "50e0dcf03fec8463d5c66c4e5f7f8e65",
+      "public/favicon.ico": "9f504444f85a5af2eef9264b02ae40be",
+      "src/design-system/hologram/assets/fonts/ABCOracle-Bold-Trial.woff.asset.json": "df0f94c6694824aec2e601d907baea76",
+      "src/design-system/hologram/assets/fonts/ABCOracle-Regular-Trial.otf.asset.json": "e6583bd84d2769a5b3ce008ca7e88978",
+      "src/design-system/hologram/assets/fonts/ABCOracle-RegularItalic-Trial.otf.asset.json": "c3ce74c1f3c8e8ece5be7acb7868fbd0",
+      "src/design-system/hologram/assets/fonts/ABCOracle-Thin-Trial.otf.asset.json": "fc4047da115915d93dbbf547032ad6ea",
+      "src/design-system/hologram/assets/fonts/ABCOracle-Ultra-Trial.otf.asset.json": "6f18f3dca5b50c19060519d05c6f8b37",
+      "src/design-system/hologram/assets/fonts/ABCOracle-UltraItalic-Trial.otf.asset.json": "2b1185048748094d5decd43a7ccdf792",
+      "src/design-system/hologram/assets/fonts/ABCOracleTriple-Bold-Trial.otf.asset.json": "0a3d694cf53b22c8521661dee95c1eab",
+      "src/design-system/hologram/assets/fonts/ABCOracleTriple-Medium-Trial.otf.asset.json": "9e9cdcfc647a94623baae4dde21635c2",
+      "src/design-system/hologram/assets/fonts/ABCOracleTriple-Regular-Trial.otf.asset.json": "93859af9b50f113de77f72398de22322",
+      "src/design-system/hologram/assets/logos/hologram-lockup-horizontal.svg": "42787b9e2e6ba2bb534414f9119e297d",
+      "src/design-system/hologram/assets/logos/hologram-mark-ui.svg": "b3114bd658a8cf4261f9370f1cc2c1d2",
+      "src/design-system/hologram/assets/logos/hologram-mark.svg": "08cdefb69083e1f5fcf1af9ac1acdbeb",
+      "src/design-system/hologram/assets/logos/hologram-og.png": "90c15a3be9efff9f4edb3d475e08ba4b",
+      "src/design-system/hologram/components/Alert.tsx": "20b8000e6e26fa92faeca14608558bf6",
+      "src/design-system/hologram/components/Badge.tsx": "8b917848295846ef2ebe5289edf29e76",
+      "src/design-system/hologram/components/Breadcrumb.tsx": "784f3372bf817daf0dca1d50970c2c9d",
+      "src/design-system/hologram/components/Button.tsx": "da22a6b6a3e19368b1c99e829698f13a",
+      "src/design-system/hologram/components/Card.tsx": "0c7d93030ff0c4c731b6df67b3080fcb",
+      "src/design-system/hologram/components/Checkbox.tsx": "b77ba15d3a7b1a88e0915a4ab462a3fb",
+      "src/design-system/hologram/components/Divider.tsx": "b3ebc2d757e61ce1f963da4ed8fc1f7d",
+      "src/design-system/hologram/components/EmptyState.tsx": "45785e906816de54975e16050ce637a9",
+      "src/design-system/hologram/components/Field.tsx": "91326dd91517b344f00ef292b462de7f",
+      "src/design-system/hologram/components/IconButton.tsx": "12a2301063e8c69f3676a9f1b03cb9b0",
+      "src/design-system/hologram/components/Input.tsx": "66c317f2144bc128dfc4c4531fdb64ac",
+      "src/design-system/hologram/components/Logo.tsx": "9535e50e8bcb7b95c1e1c250bfa33a94",
+      "src/design-system/hologram/components/Mastery.tsx": "4812a8573843e797fd2a82a9c65a9013",
+      "src/design-system/hologram/components/Modal.tsx": "a55bcec299c5a7878ee68a8ab33c7cab",
+      "src/design-system/hologram/components/PageHeader.tsx": "dd4c5ad8a5f66a2c99a10dd2c08de7dc",
+      "src/design-system/hologram/components/PersonaSidebar.tsx": "cdc935c89c3a601154438164116bb05a",
+      "src/design-system/hologram/components/Progress.tsx": "2d08c93be2f8588622b4467259284f15",
+      "src/design-system/hologram/components/Radio.tsx": "189ec4c4fdde66b13a66b0b1434d1f2e",
+      "src/design-system/hologram/components/Select.tsx": "e92740c5dc01b99affa78b1f0d7d1a3f",
+      "src/design-system/hologram/components/StatCard.tsx": "5b78026211e39a9ea7938e904df5740d",
+      "src/design-system/hologram/components/Switch.tsx": "27308550da800566e1584ab76205249e",
+      "src/design-system/hologram/components/Table.tsx": "876d8a8a69c0e9cd1bbc9698d4dc0d50",
+      "src/design-system/hologram/components/Tabs.tsx": "c91e91ef18187e78402ffc3da311b5e3",
+      "src/design-system/hologram/components/Textarea.tsx": "c20552f2c956d488b9888293eb9068f1",
+      "src/design-system/hologram/components/Toast.tsx": "7618aec0b6d80cfe1155d454733775fa",
+      "src/design-system/hologram/components/Tooltip.tsx": "562b412b8c7505f6fa315a07785516ea",
+      "src/design-system/hologram/components/TopNav.tsx": "ccec9e1f3be2476417d5a8797f600708",
+      "src/design-system/hologram/components/Typography.tsx": "9d998e8d9699eb2dd2a529328a35c227",
+      "src/design-system/hologram/index.ts": "6b49acfbdd701cd548fe59be806d4c16",
+      "src/design-system/hologram/lib/cn.ts": "f07c9750b29972474e044ca846ed645f",
+      "src/design-system/hologram/styles/components.css": "9fd7fa20b7edc119cdca4c9ce81f19a2",
+      "src/design-system/hologram/styles/theme.css": "ba623c707082538f37cee61899e961f1",
+      "src/design-system/hologram/styles/tokens.css": "c5ada40700063ba59000347a47873064",
+      "src/index.ts": "93b84d062fb0b112f9d7370b5667c8c7",
+      "src/mockup-preview.d.ts": "38969839f35ce2966e32a9f01a5c09ea",
+      "src/routeTree.gen.ts": "c746b72abf9f7e2a977046bba75994ea",
+      "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
+      "src/routes/[__component].preview.$.tsx": "3a40af1fe37daff2e891175a6e6d4f99",
+      "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
+      "src/routes/__root.tsx": "0b55eb1da1306fa944a3e7474c1bf6b4",
+      "src/routes/colors.tsx": "58d39cc3e07cbb544f6e95c509a644db",
+      "src/routes/components.tsx": "a11bd8cf1bb102cb1035d84424211412",
+      "src/routes/icons.tsx": "b228ec69dad1500bdfd02eccffb646f6",
+      "src/routes/index.tsx": "c008eaa8f1ad3636f6f995b8a443101d",
+      "src/routes/typography.tsx": "87579c051360cc2dbd5396387819bc07",
+      "src/showcase/ShowcaseNav.tsx": "67bdc83174c1c2abd4448b1116b390f3",
+      "src/showcase/Specimen.tsx": "1dc5ac51abfa5e532c48869e70d210be",
+      "src/styles.css": "e855f9935f84a5f39de050bae5cfce58",
+      "tsconfig.json": "994abf64c2b9f78b568879f80ed0170e",
+      "vite.config.ts": "9f787596cc6f9a2aa3de5a021aed28f3",
+      "wrangler.jsonc": "680b897d48e44bcc65fe437c29b38f3b"
+    },
+    "pipeline_version": 8
+  },
+  "tokens": {
+    "color": [
+      {
+        "name": "--amber",
+        "raw": "#F0934F",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo",
+        "raw": "#6366F1",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--periwinkle",
+        "raw": "#8B8CE8",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--mint",
+        "raw": "#8DCCB8",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--peach",
+        "raw": "#F3C9B0",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--lilac",
+        "raw": "#C7C3E8",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--sky",
+        "raw": "#BDD9DA",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--paper",
+        "raw": "#FBFAF7",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink",
+        "raw": "#1A1A2E",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo-deep",
+        "raw": "#4845B8",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--mint-deep",
+        "raw": "#4C8C72",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--amber-deep",
+        "raw": "#B25F28",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--amber-50",
+        "raw": "#FEF5EE",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--amber-100",
+        "raw": "#FCE7D4",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--amber-200",
+        "raw": "#F9CFAC",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--amber-300",
+        "raw": "#F5B481",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--amber-400",
+        "raw": "#F0934F",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--amber-500",
+        "raw": "#E07828",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--amber-600",
+        "raw": "#B25F28",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--amber-700",
+        "raw": "#8A4A22",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo-50",
+        "raw": "#F0F0FC",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo-100",
+        "raw": "#E2E2F8",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo-200",
+        "raw": "#C9C9F2",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo-300",
+        "raw": "#A8A8EC",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo-400",
+        "raw": "#8B8CE8",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo-500",
+        "raw": "#6366F1",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo-600",
+        "raw": "#5251D8",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo-700",
+        "raw": "#4845B8",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo-800",
+        "raw": "#3A3890",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--indigo-900",
+        "raw": "#2A2968",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--mint-50",
+        "raw": "#F1F8F4",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--mint-100",
+        "raw": "#DCEEE4",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--mint-200",
+        "raw": "#BEE0CD",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--mint-300",
+        "raw": "#9CD0B2",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--mint-400",
+        "raw": "#8DCCB8",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--mint-500",
+        "raw": "#6DB695",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--mint-600",
+        "raw": "#4C8C72",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--mint-700",
+        "raw": "#3A6B57",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--peach-50",
+        "raw": "#FDF7F1",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--peach-100",
+        "raw": "#F9E9D9",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--peach-200",
+        "raw": "#F3C9B0",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--peach-300",
+        "raw": "#E8A784",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--peach-400",
+        "raw": "#D48A63",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--lilac-50",
+        "raw": "#F5F4FB",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--lilac-100",
+        "raw": "#EBEAF5",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--lilac-200",
+        "raw": "#C7C3E8",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--lilac-300",
+        "raw": "#A29CD4",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--sky-50",
+        "raw": "#F2F7F7",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--sky-100",
+        "raw": "#E0EBEC",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--sky-200",
+        "raw": "#BDD9DA",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--sky-300",
+        "raw": "#8CBDBF",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink-900",
+        "raw": "#1A1A2E",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink-800",
+        "raw": "#2A2A42",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink-700",
+        "raw": "#3E3E56",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink-600",
+        "raw": "#5A5A70",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink-500",
+        "raw": "#7A7A8F",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink-400",
+        "raw": "#A0A0B2",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink-300",
+        "raw": "#C8C8D2",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink-200",
+        "raw": "#DEDEE4",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink-150",
+        "raw": "#E9E9ED",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink-100",
+        "raw": "#F2F2F0",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ink-50",
+        "raw": "#F7F6F2",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--paper-0",
+        "raw": "#FBFAF7",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--bg-elevated",
+        "raw": "#FFFFFF",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--danger",
+        "raw": "#D4573D",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--danger-fg",
+        "raw": "#8A3420",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--danger-bg",
+        "raw": "#FBEDE7",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      }
+    ],
+    "typography": [
+      {
+        "name": "--font-sans",
+        "raw": "'ABC Oracle', system-ui, -apple-system, 'Segoe UI', sans-serif",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--font-display",
+        "raw": "'ABC Oracle', system-ui, sans-serif",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--font-mono",
+        "raw": "'ABC Oracle Triple', 'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fs-body-lg",
+        "raw": "18px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fs-body",
+        "raw": "16px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fs-body-sm",
+        "raw": "14px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fs-caption",
+        "raw": "13px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ls-body",
+        "raw": "-0.003em",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      }
+    ],
+    "shadow": [
+      {
+        "name": "--shadow-xs",
+        "raw": "0 1px 2px rgba(26, 26, 46, 0.03)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--shadow-sm",
+        "raw": "0 1px 2px rgba(26, 26, 46, 0.04), 0 1px 3px rgba(26, 26, 46, 0.05)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--shadow-md",
+        "raw": "0 2px 4px rgba(26, 26, 46, 0.04), 0 4px 12px rgba(26, 26, 46, 0.05)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--shadow-lg",
+        "raw": "0 8px 24px rgba(26, 26, 46, 0.07), 0 2px 6px rgba(26, 26, 46, 0.04)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--shadow-xl",
+        "raw": "0 20px 48px rgba(26, 26, 46, 0.09), 0 4px 12px rgba(26, 26, 46, 0.05)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--shadow-focus",
+        "raw": "0 0 0 3px rgba(99, 102, 241, 0.28)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--shadow-amber-glow",
+        "raw": "0 8px 32px rgba(240, 147, 79, 0.22)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      }
+    ],
+    "other": [
+      {
+        "name": "--fw-regular",
+        "raw": "400",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fw-medium",
+        "raw": "500",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fw-bold",
+        "raw": "700",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fs-hero",
+        "raw": "clamp(48px, 6.5vw, 88px)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fs-display",
+        "raw": "clamp(36px, 4.5vw, 64px)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fs-h1",
+        "raw": "clamp(30px, 3.2vw, 44px)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fs-h2",
+        "raw": "clamp(24px, 2.4vw, 32px)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fs-h3",
+        "raw": "20px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fs-h4",
+        "raw": "18px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--fs-micro",
+        "raw": "12px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--lh-tight",
+        "raw": "1.08",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--lh-snug",
+        "raw": "1.22",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--lh-normal",
+        "raw": "1.5",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--lh-relaxed",
+        "raw": "1.65",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ls-hero",
+        "raw": "-0.022em",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ls-display",
+        "raw": "-0.018em",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ls-h1",
+        "raw": "-0.014em",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ls-h2",
+        "raw": "-0.01em",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ls-eyebrow",
+        "raw": "0.08em",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ls-mono",
+        "raw": "0",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--s-2",
+        "raw": "2px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--s-4",
+        "raw": "4px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--s-6",
+        "raw": "6px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--s-8",
+        "raw": "8px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--s-12",
+        "raw": "12px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--s-16",
+        "raw": "16px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--s-24",
+        "raw": "24px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--s-32",
+        "raw": "32px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--s-48",
+        "raw": "48px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--s-64",
+        "raw": "64px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--s-96",
+        "raw": "96px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--content-max",
+        "raw": "1200px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--hero-max",
+        "raw": "1440px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--r-sm",
+        "raw": "4px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--r-md",
+        "raw": "6px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--r-lg",
+        "raw": "10px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--r-xl",
+        "raw": "14px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--r-2xl",
+        "raw": "20px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--r-pill",
+        "raw": "999px",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ease-settle",
+        "raw": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ease-enter",
+        "raw": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ease-exit",
+        "raw": "cubic-bezier(0.4, 0, 1, 1)",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--ease-linear",
+        "raw": "linear",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--dur-instant",
+        "raw": "100ms",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--dur-micro",
+        "raw": "150ms",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--dur-fast",
+        "raw": "200ms",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--dur-normal",
+        "raw": "300ms",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--dur-slow",
+        "raw": "500ms",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      },
+      {
+        "name": "--dur-dramatic",
+        "raw": "800ms",
+        "source": "src/design-system/hologram/styles/tokens.css"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Button",
+      "file": "src/design-system/hologram/components/Button",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "primary",
+            "secondary",
+            "ghost",
+            "accent",
+            "danger"
+          ],
+          "default": "secondary"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "icon",
+          "type": "any"
+        },
+        {
+          "name": "iconAfter",
+          "type": "any"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "block",
+          "type": "boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "IconButton",
+      "file": "src/design-system/hologram/components/IconButton",
+      "import_path": "",
+      "props": [
+        {
+          "name": "icon",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "plain",
+            "outline",
+            "solid"
+          ],
+          "default": "plain"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "Field",
+      "file": "src/design-system/hologram/components/Field",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "htmlFor",
+          "type": "string"
+        },
+        {
+          "name": "help",
+          "type": "string"
+        },
+        {
+          "name": "error",
+          "type": "string"
+        },
+        {
+          "name": "required",
+          "type": "boolean"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-field__label"
+        },
+        {
+          "name": "children",
+          "type": "any",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Input",
+      "file": "src/design-system/hologram/components/Input",
+      "import_path": "",
+      "props": [
+        {
+          "name": "invalid",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "Textarea",
+      "file": "src/design-system/hologram/components/Textarea",
+      "import_path": "",
+      "props": [
+        {
+          "name": "invalid",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "Select",
+      "file": "src/design-system/hologram/components/Select",
+      "import_path": "",
+      "props": [
+        {
+          "name": "invalid",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "Checkbox",
+      "file": "src/design-system/hologram/components/Checkbox",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "help",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Radio",
+      "file": "src/design-system/hologram/components/Radio",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "help",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Switch",
+      "file": "src/design-system/hologram/components/Switch",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "file": "src/design-system/hologram/components/Card",
+      "import_path": "",
+      "props": [
+        {
+          "name": "elevation",
+          "type": "enum",
+          "values": [
+            "flat",
+            "raised",
+            "sunken"
+          ],
+          "default": "flat"
+        },
+        {
+          "name": "padding",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "interactive",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "children",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "Divider",
+      "file": "src/design-system/hologram/components/Divider",
+      "import_path": "",
+      "props": [
+        {
+          "name": "orientation",
+          "type": "enum",
+          "values": [
+            "horizontal",
+            "vertical"
+          ],
+          "default": "horizontal"
+        },
+        {
+          "name": "className",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "EmptyState",
+      "file": "src/design-system/hologram/components/EmptyState",
+      "import_path": "",
+      "props": [
+        {
+          "name": "icon",
+          "type": "any"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "action",
+          "type": "any"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-empty__icon"
+        }
+      ]
+    },
+    {
+      "name": "Badge",
+      "file": "src/design-system/hologram/components/Badge",
+      "import_path": "",
+      "props": [
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "neutral",
+            "indigo",
+            "amber",
+            "mint",
+            "danger",
+            "solid"
+          ],
+          "default": "neutral"
+        },
+        {
+          "name": "dot",
+          "type": "boolean",
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "Table",
+      "file": "src/design-system/hologram/components/Table",
+      "import_path": "",
+      "props": [
+        {
+          "name": "children",
+          "type": "any",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "THead",
+      "file": "src/design-system/hologram/components/Table",
+      "import_path": ""
+    },
+    {
+      "name": "TBody",
+      "file": "src/design-system/hologram/components/Table",
+      "import_path": ""
+    },
+    {
+      "name": "Tr",
+      "file": "src/design-system/hologram/components/Table",
+      "import_path": ""
+    },
+    {
+      "name": "Th",
+      "file": "src/design-system/hologram/components/Table",
+      "import_path": "",
+      "props": [
+        {
+          "name": "numeric",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "Td",
+      "file": "src/design-system/hologram/components/Table",
+      "import_path": "",
+      "props": [
+        {
+          "name": "numeric",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "Eyebrow",
+      "file": "src/design-system/hologram/components/Typography",
+      "import_path": ""
+    },
+    {
+      "name": "DataValue",
+      "file": "src/design-system/hologram/components/Typography",
+      "import_path": ""
+    },
+    {
+      "name": "StatCard",
+      "file": "src/design-system/hologram/components/StatCard",
+      "import_path": "",
+      "props": [
+        {
+          "name": "eyebrow",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "unit",
+          "type": "string"
+        },
+        {
+          "name": "sub",
+          "type": "string"
+        },
+        {
+          "name": "trend",
+          "type": "string"
+        },
+        {
+          "name": "trendDirection",
+          "type": "enum",
+          "values": [
+            "up",
+            "down"
+          ],
+          "default": "up"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-stat__row"
+        }
+      ]
+    },
+    {
+      "name": "Progress",
+      "file": "src/design-system/hologram/components/Progress",
+      "import_path": "",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "max",
+          "type": "number",
+          "default": "100"
+        },
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "indigo",
+            "mint",
+            "amber"
+          ],
+          "default": "indigo"
+        },
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "showValue",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-progress__meta"
+        }
+      ]
+    },
+    {
+      "name": "MasteryPill",
+      "file": "src/design-system/hologram/components/Mastery",
+      "import_path": "",
+      "props": [
+        {
+          "name": "level",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-badge__dot"
+        }
+      ]
+    },
+    {
+      "name": "MasteryCell",
+      "file": "src/design-system/hologram/components/Mastery",
+      "import_path": "",
+      "props": [
+        {
+          "name": "level",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-badge__dot"
+        }
+      ]
+    },
+    {
+      "name": "MasteryHeatmap",
+      "file": "src/design-system/hologram/components/Mastery",
+      "import_path": "",
+      "props": [
+        {
+          "name": "columns",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "rows",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "legend",
+          "type": "boolean",
+          "default": "true"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-badge__dot"
+        }
+      ]
+    },
+    {
+      "name": "TopNav",
+      "file": "src/design-system/hologram/components/TopNav",
+      "import_path": "",
+      "props": [
+        {
+          "name": "brand",
+          "type": "any"
+        },
+        {
+          "name": "items",
+          "type": "any"
+        },
+        {
+          "name": "actions",
+          "type": "any"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-topnav__links"
+        }
+      ]
+    },
+    {
+      "name": "PersonaSidebar",
+      "file": "src/design-system/hologram/components/PersonaSidebar",
+      "import_path": "",
+      "props": [
+        {
+          "name": "persona",
+          "type": "enum",
+          "values": [
+            "student",
+            "teacher",
+            "admin"
+          ],
+          "required": true
+        },
+        {
+          "name": "zoneLabel",
+          "type": "string"
+        },
+        {
+          "name": "items",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "footer",
+          "type": "any"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-sidebar__zone"
+        }
+      ]
+    },
+    {
+      "name": "Tabs",
+      "file": "src/design-system/hologram/components/Tabs",
+      "import_path": "",
+      "props": [
+        {
+          "name": "items",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onChange",
+          "type": "function",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumb",
+      "file": "src/design-system/hologram/components/Breadcrumb",
+      "import_path": "",
+      "props": [
+        {
+          "name": "items",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-breadcrumb__sep"
+        }
+      ]
+    },
+    {
+      "name": "PageHeader",
+      "file": "src/design-system/hologram/components/PageHeader",
+      "import_path": "",
+      "props": [
+        {
+          "name": "crumbs",
+          "type": "any"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "subtitle",
+          "type": "string"
+        },
+        {
+          "name": "actions",
+          "type": "any"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-pagehead__row"
+        }
+      ]
+    },
+    {
+      "name": "Alert",
+      "file": "src/design-system/hologram/components/Alert",
+      "import_path": "",
+      "props": [
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "info",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "default": "info"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "children",
+          "type": "any"
+        },
+        {
+          "name": "hideIcon",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-alert__icon"
+        }
+      ]
+    },
+    {
+      "name": "Tooltip",
+      "file": "src/design-system/hologram/components/Tooltip",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "children",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-tooltip__bubble"
+        }
+      ]
+    },
+    {
+      "name": "Modal",
+      "file": "src/design-system/hologram/components/Modal",
+      "import_path": "",
+      "props": [
+        {
+          "name": "open",
+          "type": "boolean",
+          "required": true
+        },
+        {
+          "name": "onClose",
+          "type": "function",
+          "required": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "children",
+          "type": "any"
+        },
+        {
+          "name": "footer",
+          "type": "any"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-modal__scrim"
+        }
+      ]
+    },
+    {
+      "name": "Toast",
+      "file": "src/design-system/hologram/components/Toast",
+      "import_path": "",
+      "props": [
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "info",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "default": "info"
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "onDismiss",
+          "type": "function"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "holo-toast__title"
+        }
+      ]
+    },
+    {
+      "name": "Logo",
+      "file": "src/design-system/hologram/components/Logo",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "mark",
+            "mark-ui",
+            "lockup"
+          ],
+          "default": "lockup"
+        },
+        {
+          "name": "height",
+          "type": "number",
+          "default": "28"
+        },
+        {
+          "name": "className",
+          "type": "string"
+        }
+      ]
+    }
+  ]
+}

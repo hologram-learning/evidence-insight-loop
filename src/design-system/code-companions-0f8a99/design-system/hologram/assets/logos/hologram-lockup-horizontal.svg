@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 120" role="img" aria-label="Hologram — Learning Platform">
+  
+  <g transform="translate(0,4)">
+    <g transform="scale(0.95)">
+      <path d="M60 8 L95 22 L88 52 L60 48 Z" fill="#F3C9B0" fill-opacity=".34" stroke="#C77A55" stroke-opacity=".5" stroke-width="1.2" stroke-linejoin="round"></path>
+      <path d="M95 22 L108 58 L88 52 Z" fill="#C7C3E8" fill-opacity=".42" stroke="#6E6DCB" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round"></path>
+      <path d="M108 58 L96 96 L80 82 L88 52 Z" fill="#8B8CE8" fill-opacity=".32" stroke="#5251D8" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round"></path>
+      <path d="M96 96 L60 108 L60 82 L80 82 Z" fill="#BDD9DA" fill-opacity=".48" stroke="#5F9FA1" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round"></path>
+      <path d="M60 108 L24 96 L40 82 L60 82 Z" fill="#8DCCB8" fill-opacity=".36" stroke="#4C8C72" stroke-opacity=".55" stroke-width="1.2" stroke-linejoin="round"></path>
+      <path d="M24 96 L12 58 L32 52 L40 82 Z" fill="#C7C3E8" fill-opacity=".36" stroke="#6E6DCB" stroke-opacity=".5" stroke-width="1.2" stroke-linejoin="round"></path>
+      <path d="M12 58 L60 8 L60 48 L32 52 Z" fill="#8B8CE8" fill-opacity=".26" stroke="#5251D8" stroke-opacity=".48" stroke-width="1.2" stroke-linejoin="round"></path>
+      <path d="M60 60 L60 48 L88 52 Z" fill="#F3C9B0" fill-opacity=".5" stroke="#C77A55" stroke-opacity=".6" stroke-width="1" stroke-linejoin="round"></path>
+      <path d="M60 60 L88 52 L80 82 Z" fill="#8B8CE8" fill-opacity=".38" stroke="#5251D8" stroke-opacity=".55" stroke-width="1" stroke-linejoin="round"></path>
+      <path d="M60 60 L80 82 L60 82 Z" fill="#BDD9DA" fill-opacity=".5" stroke="#5F9FA1" stroke-opacity=".55" stroke-width="1" stroke-linejoin="round"></path>
+      <path d="M60 60 L60 82 L40 82 Z" fill="#8DCCB8" fill-opacity=".42" stroke="#4C8C72" stroke-opacity=".55" stroke-width="1" stroke-linejoin="round"></path>
+      <path d="M60 60 L40 82 L32 52 Z" fill="#C7C3E8" fill-opacity=".4" stroke="#6E6DCB" stroke-opacity=".55" stroke-width="1" stroke-linejoin="round"></path>
+      <path d="M60 60 L32 52 L60 48 Z" fill="#8B8CE8" fill-opacity=".28" stroke="#5251D8" stroke-opacity=".5" stroke-width="1" stroke-linejoin="round"></path>
+      <g fill="none" stroke="#4845B8" stroke-opacity=".4" stroke-width="0.9" stroke-linejoin="round">
+        <path d="M60 8 L95 22 L108 58 L96 96 L60 108 L24 96 L12 58 Z"></path>
+      </g>
+      <circle cx="60" cy="60" r="5.5" fill="#F0934F" opacity=".25"></circle>
+      <circle cx="60" cy="60" r="3" fill="#F0934F"></circle>
+      <circle cx="60" cy="60" r="1.1" fill="#FEF5EE"></circle>
+    </g>
+  </g>
+
+  
+  <text x="140" y="68" font-family="&#39;ABC Oracle&#39;, system-ui, sans-serif" font-size="54" font-weight="400" fill="#1A1A2E" letter-spacing="-0.01em">hologram</text>
+  <text x="142" y="94" font-family="&#39;ABC Oracle&#39;, system-ui, sans-serif" font-size="12" font-weight="500" fill="#5A5A70" letter-spacing="0.22em">LEARNING PLATFORM</text>
+</svg>

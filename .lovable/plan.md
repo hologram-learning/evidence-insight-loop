@@ -1,56 +1,73 @@
-# Hologram Learning — pilot site and product demo
+# Hologram Learning — pilot site + standards-based LMS workspace
 
-A desktop-first marketing site plus a clickable, no-login product demo for a standards-based-grading AI learning platform, built on seeded demo data only. No real AI, no student data, no accounts, no payments.
+Two connected products in one project: a public pilot site that positions Hologram as a standards-based LMS, and a working pilot LMS workspace that stakeholders can use with seeded demo data and browser persistence.
 
-## Look and feel
+Positioning: "Hologram is a standards-based LMS built around traceable learning evidence." During pilot, it is described as designed to launch alongside an existing LMS. No claims of LTI certification, compliance, integrations, customers, outcomes, or LMS replacement today.
 
-An editorial, instrument-like system rather than a typical software site.
+## The journey that must feel real
 
-- Light: warm paper background, ink text, restrained accents (deep blue, forest green, muted gold, oxblood, slate).
-- Dark: graphite/near-black field with recessed and raised planes, accents reserved for status meaning.
-- Editorial display type for headlines, modern sans for interface and body copy, tiny technical labels.
-- Product views sit mounted inside deep framed housings; a thin "evidence rail" connector runs from student work to standard to mastery to risk to teacher action across the site.
-- Status is never communicated by color alone — every chip carries a label.
-- No stock classroom photos, cartoon art, rainbow gradients, fake logos, fake testimonials, or invented results.
+Mock LMS launch → teacher lands in Math 6 — Period 3 → sees the class signal → opens Sophia's actual response → sees 6.EE.A.3 evidence and prerequisite context → reviews the draft warm-up → edits or approves it → sees the audit event → prepares a clearly simulated passback.
 
-## Pages
+## Public site
 
-Marketing: home, how it works, product, pilot, research, security (pilot readiness), FAQ, contact, thank you, plus simple About, Privacy, Terms, Status pages so no footer link breaks.
+Home, how it works, product, pilot, research, security (implementation readiness), FAQ, contact, thank you, launch, plus about, privacy, terms, status so no link breaks.
 
-Demo (no sign-in): demo hub, Sophia Martinez student evidence view, Math 6 — Period 3 class view, and the teacher review workspace for the draft warm-up.
+- Home H1: "The LMS that keeps evidence attached to every decision." Two calls to action: "Explore the pilot workspace" (launch) and "Request a pilot review" (contact).
+- Header: Product, How it works, Pilot, Research, Launch demo, Sign in dialog ("Pilot access is issued to participating schools. Use the launch preview to explore the pilot workspace."), primary button "Request a pilot review".
+- Product page lists Evidence Console, Mastery & Prerequisite Map, Teacher Action Workspace, standards-first gradebook, assignment & submission workflow, and pilot launch context — each linking into a real app route.
+- Pilot scope copy (cohort size, school count) comes from one editable content file, not hard-coded in pages.
+- Contact form gains optional "Existing LMS or learning environment" and "Which workflow are you evaluating?" fields; saves locally, toast, then thank-you page with a summary and a link into the workspace.
 
-Shared header (sticky, transparent over the dark hero, blurred and bordered after scroll, clean mobile menu) with a non-functional Sign in dialog reading "Pilot access is issued to participating schools", and one primary call to action everywhere: "Request a pilot review". Shared five-column footer.
+## Launch boundary (simulated)
 
-## Key behaviors
+`/launch` shows a mock LMS launch card (platform: existing LMS demo context, Math 6, Period 3, Ms. Chen, Instructor, "Standards Evidence Workspace"). Launching writes a mock launch context to browser storage and lands on the course overview, with a persistent banner: "Launched in pilot context · Existing LMS demo context · Math 6 — Period 3". An integration page diagrams the coexistence model and lists simulated passback history. No real token exchange, deep linking, or LMS services.
 
-- Student view: working tabs for Evidence, Mastery, Prerequisites, Activity that change the visible content.
-- Class view: roster table with mastery and prerequisite-risk chips, the four suggested students visually grouped, standards pattern panel, draft intervention panel.
-- Teacher review: Edit (dialog with editable fields), Approve (status becomes Approved with a success state), Decline (reason capture, status becomes Declined), and Reset demo state. Wording makes clear the decision is recorded in the demo only.
-- Contact form: all required fields with inline validation, role dropdown, consent checkbox, saves to browser storage, success toast, then the thank-you page shows a summary from the saved submission.
-- Every page carries "Demo data" labeling where seeded content appears.
+Simulated passback: available only on approved evidence, opens a preview (student, assignment, standard, mastery status, teacher-entered status, destination label), needs explicit confirmation, writes an audit event, and is labeled "Demo only — no data is sent to an LMS."
 
-## Seed data
+## Pilot LMS workspace (`/app`)
 
-Exactly as specified: Sophia Martinez (6th grade math, "3(x + 4) = 21" → "3x + 4 = 21", distributive-property error, 6.EE.A.3, Developing, confidence 0.62, moderate prerequisite risk, 4 artifacts, 12-minute warm-up draft awaiting review); Math 6 — Period 3 with Ms. Chen, 27 students, 14 needing targeted support, 3–7 priority skills, "2 sigma below recent class median"; plus Marcus Lee, Olivia Carter, Daniel Kim, Maya Patel, Noah Williams.
+Shell: left sidebar, responsive collapse, top bar with demo role switcher, course context, "Demo data" label, reset control, theme switcher (system/light/dark, persisted), and the launch banner when present.
 
-## Claims discipline
+Roles (demo only, visibly change navigation and permissions):
+- Teacher (Ms. Chen) — course overview, roster, student profile, assignments (including creating one), submission review, gradebook, class insights, intervention drafts, review workspace with Edit/Approve/Decline/Reset, activity timeline, simulated passback.
+- Student (Sophia Martinez) — home, assignments, editable demo submission, standards progress in words (Beginning/Developing/Secure), teacher feedback and approved next steps. No roster, no other students' mastery, no teacher controls.
+- Instructional leader (Dr. Rivera) — aggregate course signals, intervention statuses, readiness checklist. No editing of decisions.
+- District admin (Jordan Taylor) — organization overview, participating sections, workflow coverage, audit summary, implementation checklist. No editing of decisions.
 
-No compliance certifications, customers, integrations, outcome guarantees, or metrics beyond the seeded demo. Research page includes an explicit "what Hologram does not claim" section; security page is framed as pilot readiness and implementation discussion.
+Routes: `/app`, `/app/courses`, and under `math-6-period-3`: overview, students, students/sophia-martinez, assignments, assignments/expressions-checkpoint, gradebook, insights, interventions, interventions/draft-warm-up, activity. Plus `/app/leader/overview`, `/app/district/overview`, `/app/integration`, `/app/launch-preview`, `/app/settings`, and the student routes `/app/student/home`, `/assignments`, `/assignments/expressions-checkpoint`, `/progress`, `/feedback`.
+
+Every write (edit, approve, decline, assignment created, submission saved, passback prepared/confirmed) records an audit event with actor, timestamp, action, and object.
+
+## Data and persistence
+
+One typed seed source and a local-storage repository layer behind a narrow interface so it can later be swapped for a hosted database and real authentication. Domain types cover organization, school, term, course, section, user, enrollment, student, assignment, standards alignment, submission, evidence artifact, rubric criterion, mastery record, prerequisite relation, intervention draft, teacher decision, gradebook entry, audit event, pilot request, and launch context.
+
+Seeded exactly as specified: Hologram Pilot District — Demo, North Valley Middle School — Demo, Fall 2026 — Demo, Math 6 — Period 3 (Ms. Chen, 27 students, 14 needing targeted support, 3–7 priority skills, "2 sigma below recent class median"), Expressions and Equations Checkpoint on 6.EE.A.3, Sophia Martinez ("3(x + 4) = 21" → "3x + 4 = 21", distributive-property error, Developing, confidence 0.62, moderate risk, 4 artifacts, 12-minute warm-up draft awaiting review), Marcus Lee, Olivia Carter, Daniel Kim, Maya Patel, Noah Williams, plus anonymous filler records to reach 27. All labeled "Demo data".
+
+Persisted across refresh: role, theme, launch context, intervention state, created assignment, student submission, audit history, contact submission.
+
+## Design
+
+Editorial, evidence-first, dimensional: warm paper light mode, graphite/ink dark mode, deep framed instrument housings, fine technical labels, evidence chips, restrained motion honoring reduced-motion. The evidence rail (artifact → standard → mastery → risk → teacher action) appears as an orientation device, not decoration. No stock classroom imagery, generic AI visuals, or flat rounded-card SaaS layouts. Every status chip carries an icon plus a text label — never color alone.
 
 ## Technical notes
 
-- Stack is React 19 + TypeScript on TanStack Start/Router (file-based routes in `src/routes`), which replaces React Router here.
-- Install and configure Tailwind CSS v4 via the Vite plugin, with design tokens in `src/styles.css` under `@theme inline`; add the shadcn/ui primitives actually needed (dialog, tabs, accordion, select, checkbox, toast/sonner, table, button, input, textarea). Fonts loaded through a `<link>` in the root route.
-- Reusable components split into layout (`SiteHeader`, `SiteFooter`, `PageHero`, `SectionHeader`, `EditorialSection`, `InstrumentHousing`, `EvidenceRail`, `ProductFrame`, `DemoHeader`), marketing (buttons, `EvidenceChip`, `TrustStrip`, `StepCard`, `FeatureStoryRow`, `StatBlock`, `PilotTimeline`, `FAQAccordion`, `CTASection`), demo (`StudentArtifactPanel`, `StandardsMasteryCard`, `PrerequisiteGraph`, `EvidenceTable`, `ClassRosterTable`, `InterventionDraftCard`, `TeacherReviewActions`, `StatusChip`, `DemoDataNotice`), and form (`PilotInterestForm`, `FormField`, `SubmitSuccessState`).
-- Seeded data in a single typed module; demo state in React state/context, contact submission in localStorage.
-- Zod validation on the contact form; per-route head metadata with unique titles and descriptions; reduced-motion respected.
+- Stack stays React 19 + TypeScript on TanStack Start with file-based routes in `src/routes` (this replaces React Router). Zod for form validation, Lucide icons.
+- The attached Hologram design system at `@/design-system/code-companions-0f8a99` supplies base primitives (Button, Card, Table, Tabs, Modal, Field, Input, Select, Badge, MasteryPill, MasteryHeatmap, StatCard, Toast, TopNav, PersonaSidebar); its `styles/theme.css` gets imported from `src/styles.css`. Tailwind v4 is added via the Vite plugin for layout and marketing composition, with tokens in `@theme inline`. shadcn primitives only where the design system lacks a needed control.
+- Folder layout: `src/data` (seed, standards, pilot content), `src/types` (domain, lti), `src/lib` (storage, launch context, mastery, permissions, utils), `src/components/{layout,marketing,app,lms,demo,forms}`.
+- Per-route head metadata with unique titles and descriptions on every public page.
 
 ## Build order
 
-1. Tailwind + tokens, shared layout, routes, seed data.
-2. Homepage sections A–K.
-3. Demo hub and three interactive demo routes.
-4. Contact → thank-you flow.
-5. How it works and product.
-6. Pilot, research, security, FAQ, placeholder legal pages.
-7. Responsive, accessibility, and polish pass; verify every route and call to action.
+1. Domain types, seed data, storage repository, theme tokens, shared layout, all route files.
+2. `/app` shell, role switcher, mock launch route, course context, demo reset.
+3. Teacher vertical slice: overview, roster, Sophia profile, assignment + submission, insights, intervention review, activity timeline, simulated passback.
+4. Student slice: home, submission, progress, feedback.
+5. Leader and district overviews.
+6. Public pages wired to the workspace: home, how it works, product, pilot.
+7. Contact → thank-you, FAQ, research, security, legal placeholders.
+8. Accessibility, responsiveness, link/persistence verification, polish.
+
+## Explicitly not built
+
+Real LTI 1.3/Advantage, key management, deep linking, names-and-roles or grade services; production authentication, SSO, multi-tenancy; content authoring, quizzes, files, messaging, calendar, notifications; real AI inference; real student data; billing.

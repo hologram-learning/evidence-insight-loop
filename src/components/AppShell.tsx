@@ -140,6 +140,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           <Button variant="ghost" size="sm" onClick={endLaunchContext}>
             Clear launch context
           </Button>
+        ) : (
           <Link to="/launch" className="holo-btn holo-btn--ghost holo-btn--sm">
             Open simulated launch
           </Link>

@@ -109,7 +109,10 @@ html,
 body {
   background: var(--bg);
   color: var(--fg);
+  height: 100%;
+  overflow: hidden;
 }
+#root { height: 100%; }
 
 
 /* --- Hologram composed surfaces (built above the design system, tokens only) --- */

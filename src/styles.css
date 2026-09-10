@@ -403,6 +403,18 @@ body {
   overflow-x: hidden;
   padding-right: var(--s-4);
 }
+.demo-strip {
+  display: flex;
+  align-items: center;
+  gap: var(--s-8);
+  flex-wrap: wrap;
+  flex: none;
+  padding: var(--s-6) var(--s-16);
+  background: var(--warning-bg);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: var(--fs-caption);
+  color: var(--fg-muted);
+}
 .grid-auto {
   display: grid;
   gap: var(--s-16);

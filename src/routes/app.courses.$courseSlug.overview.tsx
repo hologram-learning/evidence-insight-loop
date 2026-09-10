@@ -82,7 +82,47 @@ function CourseOverview() {
         />
       </div>
 
-      <div className="priority-well" style={{ marginTop: "var(--s-24)" }}>
+      <div className="sc-cards" style={{ marginTop: "var(--s-24)" }}>
+        <div className="sc-card">
+          <div className="sc-card__head">
+            <span className="sc-card__label">Learners enrolled</span>
+            <span className="chip">Roster</span>
+          </div>
+          <span className="sc-card__value">{course.studentCount}</span>
+          <span className="sc-card__foot">Seeded demo section</span>
+          <span className="sc-card__note">Math 6 — Period 3</span>
+        </div>
+        <div className="sc-card">
+          <div className="sc-card__head">
+            <span className="sc-card__label">Developing or below</span>
+            <span className="chip">6.EE.A.3</span>
+          </div>
+          <span className="sc-card__value">{course.needSupportCount}</span>
+          <span className="sc-card__foot">Concentrated on one error class</span>
+          <span className="sc-card__note">Distributing across both terms</span>
+        </div>
+        <div className="sc-card">
+          <div className="sc-card__head">
+            <span className="sc-card__label">Flagged prerequisites</span>
+            <span className="chip">Risk</span>
+          </div>
+          <span className="sc-card__value">{flagged}</span>
+          <span className="sc-card__foot">Upstream 5.OA.A.1 shared</span>
+          <span className="sc-card__note">Blocks progress on 6.EE.B.7</span>
+        </div>
+        <div className="sc-card">
+          <div className="sc-card__head">
+            <span className="sc-card__label">Awaiting your decision</span>
+            <span className="chip">Teacher action</span>
+          </div>
+          <span className="sc-card__value">{pending.length}</span>
+          <span className="sc-card__foot">{pending.length ? "Review before class" : "Queue is clear"}</span>
+          <span className="sc-card__note">{AUTHORITY_LINE}</span>
+        </div>
+      </div>
+
+      <div className="priority-well housing" style={{ marginTop: "var(--s-16)" }}>
+
         <div className="stack-8">
           <span className="micro-label">Priority signal · today</span>
           <h2 className="display-type" style={{ fontSize: "var(--fs-h2)", margin: 0 }}>

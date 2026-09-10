@@ -513,8 +513,9 @@ body {
 }
 
 /* Mastery cells: letter + label + non-colour marker. */
-.grid-plane { overflow-x: auto; }
+.grid-plane { width: 100%; border-collapse: separate; border-spacing: 0; }
 .grid-plane table { border-collapse: separate; border-spacing: 0; width: 100%; }
+.plane-scroll { overflow-x: auto; }
 .grid-plane th,
 .grid-plane td {
   padding: var(--s-6) var(--s-8);

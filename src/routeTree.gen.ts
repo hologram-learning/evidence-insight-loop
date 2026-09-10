@@ -21,12 +21,28 @@ import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
+import { Route as AppActivityRouteImport } from './routes/app.activity'
+import { Route as AppStudentProgressRouteImport } from './routes/app.student.progress'
+import { Route as AppStudentHomeRouteImport } from './routes/app.student.home'
+import { Route as AppStudentFeedbackRouteImport } from './routes/app.student.feedback'
+import { Route as AppLeaderStandardsRouteImport } from './routes/app.leader.standards'
+import { Route as AppLeaderOverviewRouteImport } from './routes/app.leader.overview'
+import { Route as AppLeaderInterventionsRouteImport } from './routes/app.leader.interventions'
+import { Route as AppDistrictOverviewRouteImport } from './routes/app.district.overview'
+import { Route as AppDistrictImplementationRouteImport } from './routes/app.district.implementation'
 import { Route as Char91__mockupChar93PreviewSplatRouteImport } from './routes/[__mockup].preview.$'
 import { Route as Char91__componentChar93PreviewSplatRouteImport } from './routes/[__component].preview.$'
+import { Route as AppStudentAssignmentsIndexRouteImport } from './routes/app.student.assignments.index'
+import { Route as AppStudentAssignmentsExpressionsCheckpointRouteImport } from './routes/app.student.assignments.expressions-checkpoint'
 import { Route as AppCoursesCourseSlugRosterRouteImport } from './routes/app.courses.$courseSlug.roster'
+import { Route as AppCoursesCourseSlugPassbackRouteImport } from './routes/app.courses.$courseSlug.passback'
 import { Route as AppCoursesCourseSlugOverviewRouteImport } from './routes/app.courses.$courseSlug.overview'
-import { Route as AppCoursesCourseSlugAssignmentsRouteImport } from './routes/app.courses.$courseSlug.assignments'
+import { Route as AppCoursesCourseSlugInterventionsRouteImport } from './routes/app.courses.$courseSlug.interventions'
+import { Route as AppCoursesCourseSlugInsightsRouteImport } from './routes/app.courses.$courseSlug.insights'
+import { Route as AppCoursesCourseSlugGradebookRouteImport } from './routes/app.courses.$courseSlug.gradebook'
+import { Route as AppCoursesCourseSlugAssignmentsIndexRouteImport } from './routes/app.courses.$courseSlug.assignments.index'
 import { Route as AppCoursesCourseSlugStudentsStudentSlugRouteImport } from './routes/app.courses.$courseSlug.students.$studentSlug'
+import { Route as AppCoursesCourseSlugAssignmentsAssignmentSlugRouteImport } from './routes/app.courses.$courseSlug.assignments.$assignmentSlug'
 
 const ThankYouRoute = ThankYouRouteImport.update({
   id: '/thank-you',
@@ -88,6 +104,52 @@ const AppIndexRoute = AppIndexRouteImport.update({
   path: '/',
   getParentRoute: () => AppRoute,
 } as any)
+const AppActivityRoute = AppActivityRouteImport.update({
+  id: '/activity',
+  path: '/activity',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudentProgressRoute = AppStudentProgressRouteImport.update({
+  id: '/student/progress',
+  path: '/student/progress',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudentHomeRoute = AppStudentHomeRouteImport.update({
+  id: '/student/home',
+  path: '/student/home',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppStudentFeedbackRoute = AppStudentFeedbackRouteImport.update({
+  id: '/student/feedback',
+  path: '/student/feedback',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLeaderStandardsRoute = AppLeaderStandardsRouteImport.update({
+  id: '/leader/standards',
+  path: '/leader/standards',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLeaderOverviewRoute = AppLeaderOverviewRouteImport.update({
+  id: '/leader/overview',
+  path: '/leader/overview',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppLeaderInterventionsRoute = AppLeaderInterventionsRouteImport.update({
+  id: '/leader/interventions',
+  path: '/leader/interventions',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDistrictOverviewRoute = AppDistrictOverviewRouteImport.update({
+  id: '/district/overview',
+  path: '/district/overview',
+  getParentRoute: () => AppRoute,
+} as any)
+const AppDistrictImplementationRoute =
+  AppDistrictImplementationRouteImport.update({
+    id: '/district/implementation',
+    path: '/district/implementation',
+    getParentRoute: () => AppRoute,
+  } as any)
 const Char91__mockupChar93PreviewSplatRoute =
   Char91__mockupChar93PreviewSplatRouteImport.update({
     id: '/__mockup/preview/$',
@@ -100,10 +162,28 @@ const Char91__componentChar93PreviewSplatRoute =
     path: '/__component/preview/$',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AppStudentAssignmentsIndexRoute =
+  AppStudentAssignmentsIndexRouteImport.update({
+    id: '/student/assignments/',
+    path: '/student/assignments/',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppStudentAssignmentsExpressionsCheckpointRoute =
+  AppStudentAssignmentsExpressionsCheckpointRouteImport.update({
+    id: '/student/assignments/expressions-checkpoint',
+    path: '/student/assignments/expressions-checkpoint',
+    getParentRoute: () => AppRoute,
+  } as any)
 const AppCoursesCourseSlugRosterRoute =
   AppCoursesCourseSlugRosterRouteImport.update({
     id: '/courses/$courseSlug/roster',
     path: '/courses/$courseSlug/roster',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCoursesCourseSlugPassbackRoute =
+  AppCoursesCourseSlugPassbackRouteImport.update({
+    id: '/courses/$courseSlug/passback',
+    path: '/courses/$courseSlug/passback',
     getParentRoute: () => AppRoute,
   } as any)
 const AppCoursesCourseSlugOverviewRoute =
@@ -112,16 +192,40 @@ const AppCoursesCourseSlugOverviewRoute =
     path: '/courses/$courseSlug/overview',
     getParentRoute: () => AppRoute,
   } as any)
-const AppCoursesCourseSlugAssignmentsRoute =
-  AppCoursesCourseSlugAssignmentsRouteImport.update({
-    id: '/courses/$courseSlug/assignments',
-    path: '/courses/$courseSlug/assignments',
+const AppCoursesCourseSlugInterventionsRoute =
+  AppCoursesCourseSlugInterventionsRouteImport.update({
+    id: '/courses/$courseSlug/interventions',
+    path: '/courses/$courseSlug/interventions',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCoursesCourseSlugInsightsRoute =
+  AppCoursesCourseSlugInsightsRouteImport.update({
+    id: '/courses/$courseSlug/insights',
+    path: '/courses/$courseSlug/insights',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCoursesCourseSlugGradebookRoute =
+  AppCoursesCourseSlugGradebookRouteImport.update({
+    id: '/courses/$courseSlug/gradebook',
+    path: '/courses/$courseSlug/gradebook',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCoursesCourseSlugAssignmentsIndexRoute =
+  AppCoursesCourseSlugAssignmentsIndexRouteImport.update({
+    id: '/courses/$courseSlug/assignments/',
+    path: '/courses/$courseSlug/assignments/',
     getParentRoute: () => AppRoute,
   } as any)
 const AppCoursesCourseSlugStudentsStudentSlugRoute =
   AppCoursesCourseSlugStudentsStudentSlugRouteImport.update({
     id: '/courses/$courseSlug/students/$studentSlug',
     path: '/courses/$courseSlug/students/$studentSlug',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCoursesCourseSlugAssignmentsAssignmentSlugRoute =
+  AppCoursesCourseSlugAssignmentsAssignmentSlugRouteImport.update({
+    id: '/courses/$courseSlug/assignments/$assignmentSlug',
+    path: '/courses/$courseSlug/assignments/$assignmentSlug',
     getParentRoute: () => AppRoute,
   } as any)
 
@@ -137,13 +241,29 @@ export interface FileRoutesByFullPath {
   '/research': typeof ResearchRoute
   '/security': typeof SecurityRoute
   '/thank-you': typeof ThankYouRoute
+  '/app/activity': typeof AppActivityRoute
   '/app/': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
-  '/app/courses/$courseSlug/assignments': typeof AppCoursesCourseSlugAssignmentsRoute
+  '/app/district/implementation': typeof AppDistrictImplementationRoute
+  '/app/district/overview': typeof AppDistrictOverviewRoute
+  '/app/leader/interventions': typeof AppLeaderInterventionsRoute
+  '/app/leader/overview': typeof AppLeaderOverviewRoute
+  '/app/leader/standards': typeof AppLeaderStandardsRoute
+  '/app/student/feedback': typeof AppStudentFeedbackRoute
+  '/app/student/home': typeof AppStudentHomeRoute
+  '/app/student/progress': typeof AppStudentProgressRoute
+  '/app/courses/$courseSlug/gradebook': typeof AppCoursesCourseSlugGradebookRoute
+  '/app/courses/$courseSlug/insights': typeof AppCoursesCourseSlugInsightsRoute
+  '/app/courses/$courseSlug/interventions': typeof AppCoursesCourseSlugInterventionsRoute
   '/app/courses/$courseSlug/overview': typeof AppCoursesCourseSlugOverviewRoute
+  '/app/courses/$courseSlug/passback': typeof AppCoursesCourseSlugPassbackRoute
   '/app/courses/$courseSlug/roster': typeof AppCoursesCourseSlugRosterRoute
+  '/app/student/assignments/expressions-checkpoint': typeof AppStudentAssignmentsExpressionsCheckpointRoute
+  '/app/student/assignments/': typeof AppStudentAssignmentsIndexRoute
+  '/app/courses/$courseSlug/assignments/$assignmentSlug': typeof AppCoursesCourseSlugAssignmentsAssignmentSlugRoute
   '/app/courses/$courseSlug/students/$studentSlug': typeof AppCoursesCourseSlugStudentsStudentSlugRoute
+  '/app/courses/$courseSlug/assignments/': typeof AppCoursesCourseSlugAssignmentsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -156,13 +276,29 @@ export interface FileRoutesByTo {
   '/research': typeof ResearchRoute
   '/security': typeof SecurityRoute
   '/thank-you': typeof ThankYouRoute
+  '/app/activity': typeof AppActivityRoute
   '/app': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
-  '/app/courses/$courseSlug/assignments': typeof AppCoursesCourseSlugAssignmentsRoute
+  '/app/district/implementation': typeof AppDistrictImplementationRoute
+  '/app/district/overview': typeof AppDistrictOverviewRoute
+  '/app/leader/interventions': typeof AppLeaderInterventionsRoute
+  '/app/leader/overview': typeof AppLeaderOverviewRoute
+  '/app/leader/standards': typeof AppLeaderStandardsRoute
+  '/app/student/feedback': typeof AppStudentFeedbackRoute
+  '/app/student/home': typeof AppStudentHomeRoute
+  '/app/student/progress': typeof AppStudentProgressRoute
+  '/app/courses/$courseSlug/gradebook': typeof AppCoursesCourseSlugGradebookRoute
+  '/app/courses/$courseSlug/insights': typeof AppCoursesCourseSlugInsightsRoute
+  '/app/courses/$courseSlug/interventions': typeof AppCoursesCourseSlugInterventionsRoute
   '/app/courses/$courseSlug/overview': typeof AppCoursesCourseSlugOverviewRoute
+  '/app/courses/$courseSlug/passback': typeof AppCoursesCourseSlugPassbackRoute
   '/app/courses/$courseSlug/roster': typeof AppCoursesCourseSlugRosterRoute
+  '/app/student/assignments/expressions-checkpoint': typeof AppStudentAssignmentsExpressionsCheckpointRoute
+  '/app/student/assignments': typeof AppStudentAssignmentsIndexRoute
+  '/app/courses/$courseSlug/assignments/$assignmentSlug': typeof AppCoursesCourseSlugAssignmentsAssignmentSlugRoute
   '/app/courses/$courseSlug/students/$studentSlug': typeof AppCoursesCourseSlugStudentsStudentSlugRoute
+  '/app/courses/$courseSlug/assignments': typeof AppCoursesCourseSlugAssignmentsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -177,13 +313,29 @@ export interface FileRoutesById {
   '/research': typeof ResearchRoute
   '/security': typeof SecurityRoute
   '/thank-you': typeof ThankYouRoute
+  '/app/activity': typeof AppActivityRoute
   '/app/': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
-  '/app/courses/$courseSlug/assignments': typeof AppCoursesCourseSlugAssignmentsRoute
+  '/app/district/implementation': typeof AppDistrictImplementationRoute
+  '/app/district/overview': typeof AppDistrictOverviewRoute
+  '/app/leader/interventions': typeof AppLeaderInterventionsRoute
+  '/app/leader/overview': typeof AppLeaderOverviewRoute
+  '/app/leader/standards': typeof AppLeaderStandardsRoute
+  '/app/student/feedback': typeof AppStudentFeedbackRoute
+  '/app/student/home': typeof AppStudentHomeRoute
+  '/app/student/progress': typeof AppStudentProgressRoute
+  '/app/courses/$courseSlug/gradebook': typeof AppCoursesCourseSlugGradebookRoute
+  '/app/courses/$courseSlug/insights': typeof AppCoursesCourseSlugInsightsRoute
+  '/app/courses/$courseSlug/interventions': typeof AppCoursesCourseSlugInterventionsRoute
   '/app/courses/$courseSlug/overview': typeof AppCoursesCourseSlugOverviewRoute
+  '/app/courses/$courseSlug/passback': typeof AppCoursesCourseSlugPassbackRoute
   '/app/courses/$courseSlug/roster': typeof AppCoursesCourseSlugRosterRoute
+  '/app/student/assignments/expressions-checkpoint': typeof AppStudentAssignmentsExpressionsCheckpointRoute
+  '/app/student/assignments/': typeof AppStudentAssignmentsIndexRoute
+  '/app/courses/$courseSlug/assignments/$assignmentSlug': typeof AppCoursesCourseSlugAssignmentsAssignmentSlugRoute
   '/app/courses/$courseSlug/students/$studentSlug': typeof AppCoursesCourseSlugStudentsStudentSlugRoute
+  '/app/courses/$courseSlug/assignments/': typeof AppCoursesCourseSlugAssignmentsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -199,13 +351,29 @@ export interface FileRouteTypes {
     | '/research'
     | '/security'
     | '/thank-you'
+    | '/app/activity'
     | '/app/'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
-    | '/app/courses/$courseSlug/assignments'
+    | '/app/district/implementation'
+    | '/app/district/overview'
+    | '/app/leader/interventions'
+    | '/app/leader/overview'
+    | '/app/leader/standards'
+    | '/app/student/feedback'
+    | '/app/student/home'
+    | '/app/student/progress'
+    | '/app/courses/$courseSlug/gradebook'
+    | '/app/courses/$courseSlug/insights'
+    | '/app/courses/$courseSlug/interventions'
     | '/app/courses/$courseSlug/overview'
+    | '/app/courses/$courseSlug/passback'
     | '/app/courses/$courseSlug/roster'
+    | '/app/student/assignments/expressions-checkpoint'
+    | '/app/student/assignments/'
+    | '/app/courses/$courseSlug/assignments/$assignmentSlug'
     | '/app/courses/$courseSlug/students/$studentSlug'
+    | '/app/courses/$courseSlug/assignments/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -218,13 +386,29 @@ export interface FileRouteTypes {
     | '/research'
     | '/security'
     | '/thank-you'
+    | '/app/activity'
     | '/app'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
-    | '/app/courses/$courseSlug/assignments'
+    | '/app/district/implementation'
+    | '/app/district/overview'
+    | '/app/leader/interventions'
+    | '/app/leader/overview'
+    | '/app/leader/standards'
+    | '/app/student/feedback'
+    | '/app/student/home'
+    | '/app/student/progress'
+    | '/app/courses/$courseSlug/gradebook'
+    | '/app/courses/$courseSlug/insights'
+    | '/app/courses/$courseSlug/interventions'
     | '/app/courses/$courseSlug/overview'
+    | '/app/courses/$courseSlug/passback'
     | '/app/courses/$courseSlug/roster'
+    | '/app/student/assignments/expressions-checkpoint'
+    | '/app/student/assignments'
+    | '/app/courses/$courseSlug/assignments/$assignmentSlug'
     | '/app/courses/$courseSlug/students/$studentSlug'
+    | '/app/courses/$courseSlug/assignments'
   id:
     | '__root__'
     | '/'
@@ -238,13 +422,29 @@ export interface FileRouteTypes {
     | '/research'
     | '/security'
     | '/thank-you'
+    | '/app/activity'
     | '/app/'
     | '/__component/preview/$'
     | '/__mockup/preview/$'
-    | '/app/courses/$courseSlug/assignments'
+    | '/app/district/implementation'
+    | '/app/district/overview'
+    | '/app/leader/interventions'
+    | '/app/leader/overview'
+    | '/app/leader/standards'
+    | '/app/student/feedback'
+    | '/app/student/home'
+    | '/app/student/progress'
+    | '/app/courses/$courseSlug/gradebook'
+    | '/app/courses/$courseSlug/insights'
+    | '/app/courses/$courseSlug/interventions'
     | '/app/courses/$courseSlug/overview'
+    | '/app/courses/$courseSlug/passback'
     | '/app/courses/$courseSlug/roster'
+    | '/app/student/assignments/expressions-checkpoint'
+    | '/app/student/assignments/'
+    | '/app/courses/$courseSlug/assignments/$assignmentSlug'
     | '/app/courses/$courseSlug/students/$studentSlug'
+    | '/app/courses/$courseSlug/assignments/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -349,6 +549,69 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppIndexRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/activity': {
+      id: '/app/activity'
+      path: '/activity'
+      fullPath: '/app/activity'
+      preLoaderRoute: typeof AppActivityRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/student/progress': {
+      id: '/app/student/progress'
+      path: '/student/progress'
+      fullPath: '/app/student/progress'
+      preLoaderRoute: typeof AppStudentProgressRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/student/home': {
+      id: '/app/student/home'
+      path: '/student/home'
+      fullPath: '/app/student/home'
+      preLoaderRoute: typeof AppStudentHomeRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/student/feedback': {
+      id: '/app/student/feedback'
+      path: '/student/feedback'
+      fullPath: '/app/student/feedback'
+      preLoaderRoute: typeof AppStudentFeedbackRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/leader/standards': {
+      id: '/app/leader/standards'
+      path: '/leader/standards'
+      fullPath: '/app/leader/standards'
+      preLoaderRoute: typeof AppLeaderStandardsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/leader/overview': {
+      id: '/app/leader/overview'
+      path: '/leader/overview'
+      fullPath: '/app/leader/overview'
+      preLoaderRoute: typeof AppLeaderOverviewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/leader/interventions': {
+      id: '/app/leader/interventions'
+      path: '/leader/interventions'
+      fullPath: '/app/leader/interventions'
+      preLoaderRoute: typeof AppLeaderInterventionsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/district/overview': {
+      id: '/app/district/overview'
+      path: '/district/overview'
+      fullPath: '/app/district/overview'
+      preLoaderRoute: typeof AppDistrictOverviewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/district/implementation': {
+      id: '/app/district/implementation'
+      path: '/district/implementation'
+      fullPath: '/app/district/implementation'
+      preLoaderRoute: typeof AppDistrictImplementationRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/__mockup/preview/$': {
       id: '/__mockup/preview/$'
       path: '/__mockup/preview/$'
@@ -363,11 +626,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char91__componentChar93PreviewSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/student/assignments/': {
+      id: '/app/student/assignments/'
+      path: '/student/assignments'
+      fullPath: '/app/student/assignments/'
+      preLoaderRoute: typeof AppStudentAssignmentsIndexRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/student/assignments/expressions-checkpoint': {
+      id: '/app/student/assignments/expressions-checkpoint'
+      path: '/student/assignments/expressions-checkpoint'
+      fullPath: '/app/student/assignments/expressions-checkpoint'
+      preLoaderRoute: typeof AppStudentAssignmentsExpressionsCheckpointRouteImport
+      parentRoute: typeof AppRoute
+    }
     '/app/courses/$courseSlug/roster': {
       id: '/app/courses/$courseSlug/roster'
       path: '/courses/$courseSlug/roster'
       fullPath: '/app/courses/$courseSlug/roster'
       preLoaderRoute: typeof AppCoursesCourseSlugRosterRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/courses/$courseSlug/passback': {
+      id: '/app/courses/$courseSlug/passback'
+      path: '/courses/$courseSlug/passback'
+      fullPath: '/app/courses/$courseSlug/passback'
+      preLoaderRoute: typeof AppCoursesCourseSlugPassbackRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/courses/$courseSlug/overview': {
@@ -377,11 +661,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppCoursesCourseSlugOverviewRouteImport
       parentRoute: typeof AppRoute
     }
-    '/app/courses/$courseSlug/assignments': {
-      id: '/app/courses/$courseSlug/assignments'
+    '/app/courses/$courseSlug/interventions': {
+      id: '/app/courses/$courseSlug/interventions'
+      path: '/courses/$courseSlug/interventions'
+      fullPath: '/app/courses/$courseSlug/interventions'
+      preLoaderRoute: typeof AppCoursesCourseSlugInterventionsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/courses/$courseSlug/insights': {
+      id: '/app/courses/$courseSlug/insights'
+      path: '/courses/$courseSlug/insights'
+      fullPath: '/app/courses/$courseSlug/insights'
+      preLoaderRoute: typeof AppCoursesCourseSlugInsightsRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/courses/$courseSlug/gradebook': {
+      id: '/app/courses/$courseSlug/gradebook'
+      path: '/courses/$courseSlug/gradebook'
+      fullPath: '/app/courses/$courseSlug/gradebook'
+      preLoaderRoute: typeof AppCoursesCourseSlugGradebookRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/courses/$courseSlug/assignments/': {
+      id: '/app/courses/$courseSlug/assignments/'
       path: '/courses/$courseSlug/assignments'
-      fullPath: '/app/courses/$courseSlug/assignments'
-      preLoaderRoute: typeof AppCoursesCourseSlugAssignmentsRouteImport
+      fullPath: '/app/courses/$courseSlug/assignments/'
+      preLoaderRoute: typeof AppCoursesCourseSlugAssignmentsIndexRouteImport
       parentRoute: typeof AppRoute
     }
     '/app/courses/$courseSlug/students/$studentSlug': {
@@ -391,24 +696,67 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AppCoursesCourseSlugStudentsStudentSlugRouteImport
       parentRoute: typeof AppRoute
     }
+    '/app/courses/$courseSlug/assignments/$assignmentSlug': {
+      id: '/app/courses/$courseSlug/assignments/$assignmentSlug'
+      path: '/courses/$courseSlug/assignments/$assignmentSlug'
+      fullPath: '/app/courses/$courseSlug/assignments/$assignmentSlug'
+      preLoaderRoute: typeof AppCoursesCourseSlugAssignmentsAssignmentSlugRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
 interface AppRouteChildren {
+  AppActivityRoute: typeof AppActivityRoute
   AppIndexRoute: typeof AppIndexRoute
-  AppCoursesCourseSlugAssignmentsRoute: typeof AppCoursesCourseSlugAssignmentsRoute
+  AppDistrictImplementationRoute: typeof AppDistrictImplementationRoute
+  AppDistrictOverviewRoute: typeof AppDistrictOverviewRoute
+  AppLeaderInterventionsRoute: typeof AppLeaderInterventionsRoute
+  AppLeaderOverviewRoute: typeof AppLeaderOverviewRoute
+  AppLeaderStandardsRoute: typeof AppLeaderStandardsRoute
+  AppStudentFeedbackRoute: typeof AppStudentFeedbackRoute
+  AppStudentHomeRoute: typeof AppStudentHomeRoute
+  AppStudentProgressRoute: typeof AppStudentProgressRoute
+  AppCoursesCourseSlugGradebookRoute: typeof AppCoursesCourseSlugGradebookRoute
+  AppCoursesCourseSlugInsightsRoute: typeof AppCoursesCourseSlugInsightsRoute
+  AppCoursesCourseSlugInterventionsRoute: typeof AppCoursesCourseSlugInterventionsRoute
   AppCoursesCourseSlugOverviewRoute: typeof AppCoursesCourseSlugOverviewRoute
+  AppCoursesCourseSlugPassbackRoute: typeof AppCoursesCourseSlugPassbackRoute
   AppCoursesCourseSlugRosterRoute: typeof AppCoursesCourseSlugRosterRoute
+  AppStudentAssignmentsExpressionsCheckpointRoute: typeof AppStudentAssignmentsExpressionsCheckpointRoute
+  AppStudentAssignmentsIndexRoute: typeof AppStudentAssignmentsIndexRoute
+  AppCoursesCourseSlugAssignmentsAssignmentSlugRoute: typeof AppCoursesCourseSlugAssignmentsAssignmentSlugRoute
   AppCoursesCourseSlugStudentsStudentSlugRoute: typeof AppCoursesCourseSlugStudentsStudentSlugRoute
+  AppCoursesCourseSlugAssignmentsIndexRoute: typeof AppCoursesCourseSlugAssignmentsIndexRoute
 }
 
 const AppRouteChildren: AppRouteChildren = {
+  AppActivityRoute: AppActivityRoute,
   AppIndexRoute: AppIndexRoute,
-  AppCoursesCourseSlugAssignmentsRoute: AppCoursesCourseSlugAssignmentsRoute,
+  AppDistrictImplementationRoute: AppDistrictImplementationRoute,
+  AppDistrictOverviewRoute: AppDistrictOverviewRoute,
+  AppLeaderInterventionsRoute: AppLeaderInterventionsRoute,
+  AppLeaderOverviewRoute: AppLeaderOverviewRoute,
+  AppLeaderStandardsRoute: AppLeaderStandardsRoute,
+  AppStudentFeedbackRoute: AppStudentFeedbackRoute,
+  AppStudentHomeRoute: AppStudentHomeRoute,
+  AppStudentProgressRoute: AppStudentProgressRoute,
+  AppCoursesCourseSlugGradebookRoute: AppCoursesCourseSlugGradebookRoute,
+  AppCoursesCourseSlugInsightsRoute: AppCoursesCourseSlugInsightsRoute,
+  AppCoursesCourseSlugInterventionsRoute:
+    AppCoursesCourseSlugInterventionsRoute,
   AppCoursesCourseSlugOverviewRoute: AppCoursesCourseSlugOverviewRoute,
+  AppCoursesCourseSlugPassbackRoute: AppCoursesCourseSlugPassbackRoute,
   AppCoursesCourseSlugRosterRoute: AppCoursesCourseSlugRosterRoute,
+  AppStudentAssignmentsExpressionsCheckpointRoute:
+    AppStudentAssignmentsExpressionsCheckpointRoute,
+  AppStudentAssignmentsIndexRoute: AppStudentAssignmentsIndexRoute,
+  AppCoursesCourseSlugAssignmentsAssignmentSlugRoute:
+    AppCoursesCourseSlugAssignmentsAssignmentSlugRoute,
   AppCoursesCourseSlugStudentsStudentSlugRoute:
     AppCoursesCourseSlugStudentsStudentSlugRoute,
+  AppCoursesCourseSlugAssignmentsIndexRoute:
+    AppCoursesCourseSlugAssignmentsIndexRoute,
 }
 
 const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)

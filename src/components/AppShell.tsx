@@ -7,6 +7,8 @@ import {
   LayoutDashboard,
   ListChecks,
   MessageSquare,
+  Share2,
+
   Table2,
   Users,
 } from "lucide-react";
@@ -30,7 +32,9 @@ const TEACHER_NAV = [
   { label: "Class insights", href: "/app/courses/math-6-period-3/insights", icon: <ListChecks size={16} /> },
   { label: "Gradebook", href: "/app/courses/math-6-period-3/gradebook", icon: <Table2 size={16} /> },
   { label: "Interventions", href: "/app/courses/math-6-period-3/interventions", icon: <BookOpen size={16} /> },
+  { label: "Simulated passback", href: "/app/courses/math-6-period-3/passback", icon: <Share2 size={16} /> },
   { label: "Activity history", href: "/app/activity", icon: <History size={16} /> },
+
 ];
 
 const STUDENT_NAV = [

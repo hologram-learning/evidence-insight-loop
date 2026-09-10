@@ -22,7 +22,7 @@ import { useDemo } from "@/lib/demo-state";
 import { formatDemoDate } from "@/lib/mastery";
 import type { Assignment } from "@/types/domain";
 
-export const Route = createFileRoute("/app/courses/$courseSlug/assignments")({
+export const Route = createFileRoute("/app/courses/$courseSlug/assignments/")({
   component: AssignmentsPage,
 });
 

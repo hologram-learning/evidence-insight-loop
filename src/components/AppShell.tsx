@@ -118,8 +118,9 @@ export function AppShell({ children }: { children: ReactNode }) {
 
   const groups = NAV_BY_ROLE[role];
   const activeLabel =
-    groups.flatMap((group) => group.items).find((item) => item.pathnameMatch(location.pathname))?.label ??
+    groups.flatMap((group) => group.items).find((item) => item.href === location.pathname)?.label ??
     "Workspace";
+
 
   function handleRoleChange(next: DemoRole) {
     setRole(next);

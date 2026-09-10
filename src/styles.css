@@ -707,3 +707,11 @@ body {
   border-top: 1px solid var(--border-subtle);
   padding-top: var(--s-8);
 }
+
+.app-column {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}

@@ -137,14 +137,9 @@ export function AppShell({ children }: { children: ReactNode }) {
             : "No launch context is active. Everything shown is seeded demo data stored in this browser."}
         </span>
         {launchContext ? (
-          <button
-            type="button"
-            className="holo-btn holo-btn--ghost holo-btn--sm"
-            onClick={endLaunchContext}
-          >
+          <Button variant="ghost" size="sm" onClick={endLaunchContext}>
             Clear launch context
-          </button>
-        ) : (
+          </Button>
           <Link to="/launch" className="holo-btn holo-btn--ghost holo-btn--sm">
             Open simulated launch
           </Link>

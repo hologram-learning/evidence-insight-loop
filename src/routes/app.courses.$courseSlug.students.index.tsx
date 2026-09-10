@@ -36,7 +36,7 @@ function StudentsPage() {
         actions={<Badge tone="amber">Demo data</Badge>}
       />
 
-      <div className="hrow-16" style={{ marginTop: "var(--s-16)" }}>
+      <div className="sc-toolbar" style={{ marginTop: "var(--s-16)" }}>
         <Input
           value={query}
           onChange={(event) => setQuery(event.target.value)}
@@ -49,11 +49,16 @@ function StudentsPage() {
           <option value="moderate">Moderate risk</option>
           <option value="low">Low risk</option>
         </Select>
+        <span className="sc-toolbar__spacer" />
+        <span className="micro-label">
+          {rows.length} of {STUDENTS.length} learners
+        </span>
       </div>
 
       <div style={{ marginTop: "var(--s-16)" }}>
         <MasteryLegend />
       </div>
+
 
       {rows.length === 0 ? (
         <div style={{ marginTop: "var(--s-24)" }}>

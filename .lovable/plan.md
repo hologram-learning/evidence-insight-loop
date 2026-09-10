@@ -53,21 +53,32 @@ Editorial, evidence-first, dimensional: warm paper light mode, graphite/ink dark
 ## Technical notes
 
 - Stack stays React 19 + TypeScript on TanStack Start with file-based routes in `src/routes` (this replaces React Router). Zod for form validation, Lucide icons.
-- The attached Hologram design system at `@/design-system/code-companions-0f8a99` supplies base primitives (Button, Card, Table, Tabs, Modal, Field, Input, Select, Badge, MasteryPill, MasteryHeatmap, StatCard, Toast, TopNav, PersonaSidebar); its `styles/theme.css` gets imported from `src/styles.css`. Tailwind v4 is added via the Vite plugin for layout and marketing composition, with tokens in `@theme inline`. shadcn primitives only where the design system lacks a needed control.
-- Folder layout: `src/data` (seed, standards, pilot content), `src/types` (domain, lti), `src/lib` (storage, launch context, mastery, permissions, utils), `src/components/{layout,marketing,app,lms,demo,forms}`.
+- The attached Hologram design system at `@/design-system/code-companions-0f8a99` supplies the theme foundation and primitives (Button, Card, Table, Tabs, Modal, Field, Input, Select, Badge, MasteryPill, MasteryHeatmap, StatCard, Toast, TopNav, PersonaSidebar); its `styles/theme.css` is the single token source, imported once at the root. Hologram-specific composed components (instrument housings, evidence rail, product frames, gradebook, review workspace) are built above those primitives. Tailwind v4 handles layout and composition only and maps to the existing tokens — no duplicate or competing theme variables, no default shadcn look, no flat card-grid dashboard.
+- Folder layout: `src/data` (seed, standards, pilotContent), `src/types` (domain, lti), `src/lib` (storage, ltiContext, mastery, permissions, utils), `src/components/{layout,marketing,app,lms,demo,forms}`.
+- Mock launch context is isolated in `src/lib/ltiContext.ts` (create/get/clear) under the key `hologram_demo_lti_launch_context`, always carrying `isDemo: true`. Every launch-related screen is labeled simulated pilot context; no wording implies a real LMS sent, authenticated, or received anything.
 - Per-route head metadata with unique titles and descriptions on every public page.
+
+## Permissions and states
+
+- `src/lib/permissions.ts` gates each route by demo role. Teacher-only routes redirect other roles to their permitted landing view; where a redirect would be confusing, a polite "This view is not available for the selected demo role" panel renders instead of a blank page.
+- Student role never renders roster data, peer mastery, intervention drafts, passback controls, audit detail, or teacher controls. Leader and district roles are read-only.
+- Explicit empty/loading/error-style states for: no assignments yet, no interventions awaiting review, no activity recorded, no pilot request saved, missing or cleared launch context, and no roster search/filter results — all clearly demo-only.
+- Audit events are written for assignment creation, submission save, evidence review, intervention edit, approval, decline, passback preview, and passback confirmation. Each carries actor, role, timestamp, action, target object, and a human-readable description.
+- Reset demo state asks for confirmation, then restores the original seed exactly.
 
 ## Build order
 
-1. Domain types, seed data, storage repository, theme tokens, shared layout, all route files.
+1. Domain types, seed data, storage repository, permissions, theme foundation, shared layout, route files.
 2. `/app` shell, role switcher, mock launch route, course context, demo reset.
-3. Teacher vertical slice: overview, roster, Sophia profile, assignment + submission, insights, intervention review, activity timeline, simulated passback.
-4. Student slice: home, submission, progress, feedback.
+3. Teacher vertical slice, complete before any breadth: launch preview, course overview, roster, Sophia evidence profile, assignment and seeded submission, class insights, intervention review, audit history, simulated passback.
+4. Student slice at explicit routes: `/app/student/home`, `/app/student/assignments`, `/app/student/assignments/expressions-checkpoint`, `/app/student/progress`, `/app/student/feedback`.
 5. Leader and district overviews.
 6. Public pages wired to the workspace: home, how it works, product, pilot.
 7. Contact → thank-you, FAQ, research, security, legal placeholders.
 8. Accessibility, responsiveness, link/persistence verification, polish.
 
+After each phase: verify routes, permissions, local persistence, reset behavior, call-to-action destinations, responsive behavior, and keyboard accessibility before moving on.
+
 ## Explicitly not built
 
-Real LTI 1.3/Advantage, key management, deep linking, names-and-roles or grade services; production authentication, SSO, multi-tenancy; content authoring, quizzes, files, messaging, calendar, notifications; real AI inference; real student data; billing.
+Real LTI 1.3/Advantage, key management, deep linking, names-and-roles or grade services; production authentication, SSO, multi-tenancy; content authoring, quizzes, files, messaging, calendar, notifications; real AI inference; real student data; production grade passback; compliance guarantees; billing or payments.

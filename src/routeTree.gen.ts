@@ -9,15 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as ThankYouRouteImport } from './routes/thank-you'
-import { Route as SecurityRouteImport } from './routes/security'
-import { Route as ResearchRouteImport } from './routes/research'
-import { Route as ProductRouteImport } from './routes/product'
-import { Route as PilotLaunchRouteImport } from './routes/pilot-launch'
 import { Route as LaunchRouteImport } from './routes/launch'
-import { Route as HowItWorksRouteImport } from './routes/how-it-works'
-import { Route as FaqRouteImport } from './routes/faq'
-import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AppIndexRouteImport } from './routes/app.index'
@@ -44,49 +36,9 @@ import { Route as AppCoursesCourseSlugAssignmentsIndexRouteImport } from './rout
 import { Route as AppCoursesCourseSlugStudentsStudentSlugRouteImport } from './routes/app.courses.$courseSlug.students.$studentSlug'
 import { Route as AppCoursesCourseSlugAssignmentsAssignmentSlugRouteImport } from './routes/app.courses.$courseSlug.assignments.$assignmentSlug'
 
-const ThankYouRoute = ThankYouRouteImport.update({
-  id: '/thank-you',
-  path: '/thank-you',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SecurityRoute = SecurityRouteImport.update({
-  id: '/security',
-  path: '/security',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ResearchRoute = ResearchRouteImport.update({
-  id: '/research',
-  path: '/research',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProductRoute = ProductRouteImport.update({
-  id: '/product',
-  path: '/product',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const PilotLaunchRoute = PilotLaunchRouteImport.update({
-  id: '/pilot-launch',
-  path: '/pilot-launch',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const LaunchRoute = LaunchRouteImport.update({
   id: '/launch',
   path: '/launch',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const HowItWorksRoute = HowItWorksRouteImport.update({
-  id: '/how-it-works',
-  path: '/how-it-works',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FaqRoute = FaqRouteImport.update({
-  id: '/faq',
-  path: '/faq',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AppRoute = AppRouteImport.update({
@@ -232,15 +184,7 @@ const AppCoursesCourseSlugAssignmentsAssignmentSlugRoute =
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
-  '/contact': typeof ContactRoute
-  '/faq': typeof FaqRoute
-  '/how-it-works': typeof HowItWorksRoute
   '/launch': typeof LaunchRoute
-  '/pilot-launch': typeof PilotLaunchRoute
-  '/product': typeof ProductRoute
-  '/research': typeof ResearchRoute
-  '/security': typeof SecurityRoute
-  '/thank-you': typeof ThankYouRoute
   '/app/activity': typeof AppActivityRoute
   '/app/': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -267,15 +211,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/contact': typeof ContactRoute
-  '/faq': typeof FaqRoute
-  '/how-it-works': typeof HowItWorksRoute
   '/launch': typeof LaunchRoute
-  '/pilot-launch': typeof PilotLaunchRoute
-  '/product': typeof ProductRoute
-  '/research': typeof ResearchRoute
-  '/security': typeof SecurityRoute
-  '/thank-you': typeof ThankYouRoute
   '/app/activity': typeof AppActivityRoute
   '/app': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -304,15 +240,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/app': typeof AppRouteWithChildren
-  '/contact': typeof ContactRoute
-  '/faq': typeof FaqRoute
-  '/how-it-works': typeof HowItWorksRoute
   '/launch': typeof LaunchRoute
-  '/pilot-launch': typeof PilotLaunchRoute
-  '/product': typeof ProductRoute
-  '/research': typeof ResearchRoute
-  '/security': typeof SecurityRoute
-  '/thank-you': typeof ThankYouRoute
   '/app/activity': typeof AppActivityRoute
   '/app/': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
@@ -342,15 +270,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/app'
-    | '/contact'
-    | '/faq'
-    | '/how-it-works'
     | '/launch'
-    | '/pilot-launch'
-    | '/product'
-    | '/research'
-    | '/security'
-    | '/thank-you'
     | '/app/activity'
     | '/app/'
     | '/__component/preview/$'
@@ -377,15 +297,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
-    | '/contact'
-    | '/faq'
-    | '/how-it-works'
     | '/launch'
-    | '/pilot-launch'
-    | '/product'
-    | '/research'
-    | '/security'
-    | '/thank-you'
     | '/app/activity'
     | '/app'
     | '/__component/preview/$'
@@ -413,15 +325,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/app'
-    | '/contact'
-    | '/faq'
-    | '/how-it-works'
     | '/launch'
-    | '/pilot-launch'
-    | '/product'
-    | '/research'
-    | '/security'
-    | '/thank-you'
     | '/app/activity'
     | '/app/'
     | '/__component/preview/$'
@@ -450,82 +354,18 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AppRoute: typeof AppRouteWithChildren
-  ContactRoute: typeof ContactRoute
-  FaqRoute: typeof FaqRoute
-  HowItWorksRoute: typeof HowItWorksRoute
   LaunchRoute: typeof LaunchRoute
-  PilotLaunchRoute: typeof PilotLaunchRoute
-  ProductRoute: typeof ProductRoute
-  ResearchRoute: typeof ResearchRoute
-  SecurityRoute: typeof SecurityRoute
-  ThankYouRoute: typeof ThankYouRoute
   Char91__componentChar93PreviewSplatRoute: typeof Char91__componentChar93PreviewSplatRoute
   Char91__mockupChar93PreviewSplatRoute: typeof Char91__mockupChar93PreviewSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/thank-you': {
-      id: '/thank-you'
-      path: '/thank-you'
-      fullPath: '/thank-you'
-      preLoaderRoute: typeof ThankYouRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/security': {
-      id: '/security'
-      path: '/security'
-      fullPath: '/security'
-      preLoaderRoute: typeof SecurityRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/research': {
-      id: '/research'
-      path: '/research'
-      fullPath: '/research'
-      preLoaderRoute: typeof ResearchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/product': {
-      id: '/product'
-      path: '/product'
-      fullPath: '/product'
-      preLoaderRoute: typeof ProductRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pilot-launch': {
-      id: '/pilot-launch'
-      path: '/pilot-launch'
-      fullPath: '/pilot-launch'
-      preLoaderRoute: typeof PilotLaunchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/launch': {
       id: '/launch'
       path: '/launch'
       fullPath: '/launch'
       preLoaderRoute: typeof LaunchRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/how-it-works': {
-      id: '/how-it-works'
-      path: '/how-it-works'
-      fullPath: '/how-it-works'
-      preLoaderRoute: typeof HowItWorksRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/faq': {
-      id: '/faq'
-      path: '/faq'
-      fullPath: '/faq'
-      preLoaderRoute: typeof FaqRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/app': {
@@ -764,15 +604,7 @@ const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AppRoute: AppRouteWithChildren,
-  ContactRoute: ContactRoute,
-  FaqRoute: FaqRoute,
-  HowItWorksRoute: HowItWorksRoute,
   LaunchRoute: LaunchRoute,
-  PilotLaunchRoute: PilotLaunchRoute,
-  ProductRoute: ProductRoute,
-  ResearchRoute: ResearchRoute,
-  SecurityRoute: SecurityRoute,
-  ThankYouRoute: ThankYouRoute,
   Char91__componentChar93PreviewSplatRoute:
     Char91__componentChar93PreviewSplatRoute,
   Char91__mockupChar93PreviewSplatRoute: Char91__mockupChar93PreviewSplatRoute,

@@ -1,7 +1,7 @@
 import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { Rocket } from "lucide-react";
 import { Alert, Badge, Button, Eyebrow, PageHeader } from "@/design-system/code-companions-0f8a99";
-import { SiteChrome } from "@/components/SiteChrome";
+
 import { PILOT_CONTENT } from "@/data/pilotContent";
 import { useDemo } from "@/lib/demo-state";
 import { formatDemoTimestamp } from "@/lib/mastery";
@@ -49,10 +49,10 @@ function LaunchPage() {
     : null;
 
   return (
-    <SiteChrome>
+    <div className="site-frame">
       <div className="section">
         <PageHeader
-          crumbs={[{ label: "Home", href: "/" }, { label: "Simulated launch" }]}
+          crumbs={[{ label: "Simulated launch" }]}
           title="Simulated pilot launch"
           subtitle={PILOT_CONTENT.pilotPositioning}
           actions={<Badge tone="amber" dot>{PILOT_CONTENT.simulatedBadge}</Badge>}
@@ -107,6 +107,6 @@ function LaunchPage() {
           </div>
         </div>
       </div>
-    </SiteChrome>
+    </div>
   );
 }

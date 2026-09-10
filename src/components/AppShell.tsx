@@ -93,7 +93,7 @@ export function AppShell({ children }: { children: ReactNode }) {
         Skip to workspace
       </a>
       <div className="app-topbar">
-        <Link to="/" className="wordmark" aria-label="Hologram Learning — public site">
+        <Link to="/app" className="wordmark" aria-label="Hologram Learning — pilot workspace">
           <span className="wordmark__mark" aria-hidden="true" />
           <span>
             Hologram<span className="wordmark__thin"> Workspace</span>
@@ -158,11 +158,11 @@ export function AppShell({ children }: { children: ReactNode }) {
           items={items}
           footer={
             <Link
-              to="/"
+              to="/launch"
               className="holo-btn holo-btn--ghost holo-btn--sm"
               style={{ margin: "var(--s-12)" }}
             >
-              Back to public site
+              Simulated launch
             </Link>
           }
         />

@@ -60,7 +60,7 @@ function GradebookPage() {
       </div>
 
       <Housing className="mt-6">
-        <table className="grid-plane">
+        <div className="plane-scroll"><table className="grid-plane">
           <thead>
             <tr>
               <th scope="col">Learner</th>
@@ -130,7 +130,7 @@ function GradebookPage() {
               </tr>
             ))}
           </tbody>
-        </table>
+        </table></div>
       </Housing>
 
       {cell && selected && (

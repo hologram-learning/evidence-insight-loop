@@ -147,7 +147,7 @@ function DecisionWorkspace() {
           <Housing>
             <div className="stack-8">
               <span className="micro-label">Learners in this group</span>
-              <table className="grid-plane">
+              <div className="plane-scroll"><table className="grid-plane">
                 <thead>
                   <tr>
                     <th scope="col">Learner</th>
@@ -185,7 +185,7 @@ function DecisionWorkspace() {
                     </tr>
                   ))}
                 </tbody>
-              </table>
+              </table></div>
             </div>
           </Housing>
 

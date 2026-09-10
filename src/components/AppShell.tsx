@@ -103,7 +103,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           {PILOT_CONTENT.demoBadge}
         </Badge>
         <div className="app-topbar__spacer" />
-        <label className="row-8" style={{ fontSize: "var(--fs-caption)", color: "var(--fg-muted)" }}>
+        <label className="hrow-8" style={{ fontSize: "var(--fs-caption)", color: "var(--fg-muted)" }}>
           <span>Demo role</span>
           <Select
             value={role}

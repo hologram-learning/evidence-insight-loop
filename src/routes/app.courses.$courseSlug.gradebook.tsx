@@ -137,7 +137,7 @@ function GradebookPage() {
         <>
           <div className="drawer-scrim" onClick={() => setCell(null)} aria-hidden="true" />
           <aside className="drawer-panel stack-16" aria-label={`${selected.name}, ${cell.code} detail`}>
-            <div className="row-16">
+            <div className="hrow-16">
               <span className="micro-label">{cell.code}</span>
               <Button size="sm" variant="ghost" onClick={() => setCell(null)}>
                 Close

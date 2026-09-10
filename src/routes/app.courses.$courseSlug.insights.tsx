@@ -45,7 +45,7 @@ function PatternConsole() {
       <div className="planes" style={{ marginTop: "var(--s-24)" }}>
         <Housing>
           <div className="stack-8">
-            <div className="row-16">
+            <div className="hrow-16">
               <span className="micro-label">Mastery by standard · {rows.length} learners</span>
               <MasteryLegend />
             </div>

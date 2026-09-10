@@ -36,7 +36,7 @@ function StudentsPage() {
         actions={<Badge tone="amber">Demo data</Badge>}
       />
 
-      <div className="row-16" style={{ marginTop: "var(--s-16)" }}>
+      <div className="hrow-16" style={{ marginTop: "var(--s-16)" }}>
         <Input
           value={query}
           onChange={(event) => setQuery(event.target.value)}

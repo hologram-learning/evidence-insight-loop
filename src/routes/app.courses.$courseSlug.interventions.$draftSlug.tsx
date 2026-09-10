@@ -93,7 +93,7 @@ function DecisionWorkspace() {
         title={draft.title}
         subtitle={AUTHORITY_LINE}
         actions={
-          <div className="row-8">
+          <div className="hrow-8">
             <StatusChip status={draft.status} edited={edited} />
             <Badge tone="amber">Demo data</Badge>
           </div>
@@ -229,7 +229,7 @@ function DecisionWorkspace() {
 
           <Housing>
             <div className="stack-8">
-              <div className="row-16">
+              <div className="hrow-16">
                 <span className="micro-label">
                   {edited ? "Teacher plan · edited" : "Teacher plan · unchanged from the draft"}
                 </span>
@@ -254,7 +254,7 @@ function DecisionWorkspace() {
               )}
 
               {!readOnly && (
-                <div className="row-8">
+                <div className="hrow-8">
                   <Button
                     variant="accent"
                     disabled={draft.status === "approved"}

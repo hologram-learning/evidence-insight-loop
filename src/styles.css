@@ -400,8 +400,8 @@ body {
 .stack-12 { display: flex; flex-direction: column; gap: var(--s-12); }
 .stack-16 { display: flex; flex-direction: column; gap: var(--s-16); }
 .stack-24 { display: flex; flex-direction: column; gap: var(--s-24); }
-.row-8 { display: flex; gap: var(--s-8); flex-wrap: wrap; align-items: center; }
-.row-16 { display: flex; gap: var(--s-16); flex-wrap: wrap; align-items: center; }
+.hrow-8 { display: flex; gap: var(--s-8); flex-wrap: wrap; align-items: center; }
+.hrow-16 { display: flex; gap: var(--s-16); flex-wrap: wrap; align-items: center; }
 
 .artifact-line {
   font-family: var(--font-mono);

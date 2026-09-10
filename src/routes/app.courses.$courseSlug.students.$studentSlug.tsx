@@ -90,7 +90,7 @@ function StudentEvidencePage() {
 
       <div className="housing" style={{ marginTop: "var(--s-24)" }}>
         <div className="housing-inner stack-16" style={{ padding: "var(--s-24)" }}>
-          <div className="row-16">
+          <div className="hrow-16">
             <Eyebrow>Submitted response</Eyebrow>
             <Badge tone="amber">Demo artifact</Badge>
           </div>
@@ -145,7 +145,7 @@ function StudentEvidencePage() {
         </div>
       </div>
 
-      <div className="row-16" style={{ marginTop: "var(--s-24)" }}>
+      <div className="hrow-16" style={{ marginTop: "var(--s-24)" }}>
         <Link
           to="/app/courses/$courseSlug/interventions/$draftSlug"
           params={{ courseSlug, draftSlug: "draft-warm-up" }}

@@ -45,7 +45,7 @@ function InterventionQueue() {
             return (
               <Housing key={draft.id}>
                 <div className="stack-8">
-                  <div className="row-16">
+                  <div className="hrow-16">
                     <span className="micro-label">{`${draft.standardCode} · ${draft.durationMinutes} min · ${students.length} learners`}</span>
                     <StatusChip status={draft.status} edited={draft.teacherEdits.length > 0} />
                   </div>

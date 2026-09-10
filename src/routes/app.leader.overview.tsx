@@ -27,7 +27,7 @@ function LeaderOverview() {
       <div className="stack-16" style={{ marginTop: "var(--s-24)" }}>
         {COURSES.map((course) => (
           <div key={course.id} className="housing">
-            <div className="housing-inner row-16" style={{ padding: "var(--s-24)", justifyContent: "space-between" }}>
+            <div className="housing-inner hrow-16" style={{ padding: "var(--s-24)", justifyContent: "space-between" }}>
               <div>
                 <span className="micro-label">{course.gradeLevel}</span>
                 <h2 className="display-type" style={{ fontSize: "var(--fs-h4)", margin: "var(--s-4) 0" }}>

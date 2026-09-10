@@ -121,7 +121,7 @@ function AssignmentDetailPage() {
                   placeholder="Name the specific step to revisit."
                 />
               </label>
-              <div className="row-16">
+              <div className="hrow-16">
                 <Button
                   variant="primary"
                   onClick={() => {

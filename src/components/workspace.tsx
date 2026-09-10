@@ -178,7 +178,7 @@ export function MasteryCellButton({
 
 export function MasteryLegend() {
   return (
-    <div className="row-16" style={{ gap: "var(--s-12)" }}>
+    <div className="hrow-16" style={{ gap: "var(--s-12)" }}>
       {(["beginning", "developing", "approaching", "secure"] as MasteryState[]).map((state) => (
         <span key={state} className="micro-label" style={{ display: "inline-flex", gap: "var(--s-6)" }}>
           <span className="mcell" data-state={state} style={{ width: "auto" }}>
@@ -242,7 +242,7 @@ export function AgentReasoningPanel({
 }) {
   return (
     <div className="inset-plane stack-8" style={{ padding: "var(--s-16)" }}>
-      <div className="row-8">
+      <div className="hrow-8">
         <span className="micro-label">Agent reasoning</span>
         <ProvenanceLabel>AI-proposed</ProvenanceLabel>
       </div>
@@ -269,7 +269,7 @@ export function AuditReceipt({ event }: { event: AuditEvent }) {
   const context = event.context;
   return (
     <div className="receipt">
-      <div className="row-8">
+      <div className="hrow-8">
         <span className="micro-label">Audit receipt</span>
         <ProvenanceLabel>Local demo only</ProvenanceLabel>
       </div>

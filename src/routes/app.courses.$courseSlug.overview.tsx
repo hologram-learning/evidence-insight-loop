@@ -93,7 +93,7 @@ function CourseOverview() {
             6.EE.A.3. The pattern concentrates on distributing a factor across both terms.
           </p>
           {focus ? (
-            <div className="row-16">
+            <div className="hrow-16">
               <StatusChip status={focus.status} edited={focus.teacherEdits.length > 0} />
               <Link
                 to="/app/courses/$courseSlug/interventions/$draftSlug"

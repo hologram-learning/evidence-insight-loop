@@ -42,7 +42,7 @@ function LeaderInterventions() {
               <div key={draft.id} className="housing">
                 <div className="housing-inner stack-8" style={{ padding: "var(--s-24)" }}>
                   <Eyebrow>{`${course?.name ?? "Course"} · ${draft.standardCode}`}</Eyebrow>
-                  <div className="row-16" style={{ justifyContent: "space-between" }}>
+                  <div className="hrow-16" style={{ justifyContent: "space-between" }}>
                     <h2 className="display-type" style={{ fontSize: "var(--fs-h4)", margin: 0 }}>
                       {draft.title}
                     </h2>

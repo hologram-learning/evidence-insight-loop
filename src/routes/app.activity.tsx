@@ -65,7 +65,7 @@ function ActivityPage() {
                     <span className="micro-label">{formatDemoTimestamp(event.timestamp)}</span>
                   </div>
                   <p style={{ margin: "var(--s-4) 0" }}>{event.description}</p>
-                  <div className="row-8">
+                  <div className="hrow-8">
                     <Badge tone="indigo">{event.actor}</Badge>
                     <Badge tone="neutral">{ROLE_LABEL[event.role]}</Badge>
                     <span className="micro-label">{event.target}</span>

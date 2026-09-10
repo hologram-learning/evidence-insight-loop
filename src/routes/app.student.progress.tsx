@@ -24,7 +24,7 @@ function StudentProgress() {
 
       <div className="housing" style={{ marginTop: "var(--s-24)" }}>
         <div className="housing-inner stack-16" style={{ padding: "var(--s-24)" }}>
-          <div className="row-16" style={{ justifyContent: "space-between" }}>
+          <div className="hrow-16" style={{ justifyContent: "space-between" }}>
             <div>
               <span className="micro-label">6.EE.A.3</span>
               <h2 className="display-type" style={{ fontSize: "var(--fs-h3)", margin: "var(--s-4) 0 0" }}>

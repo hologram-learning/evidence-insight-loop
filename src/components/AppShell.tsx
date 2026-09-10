@@ -27,15 +27,15 @@ import type { DemoRole } from "@/types/domain";
 
 const TEACHER_NAV = [
   { label: "Course overview", href: "/app/courses/math-6-period-3/overview", icon: <LayoutDashboard size={16} /> },
-  { label: "Roster", href: "/app/courses/math-6-period-3/roster", icon: <Users size={16} /> },
-  { label: "Assignments", href: "/app/courses/math-6-period-3/assignments", icon: <ClipboardList size={16} /> },
-  { label: "Class insights", href: "/app/courses/math-6-period-3/insights", icon: <ListChecks size={16} /> },
+  { label: "Students", href: "/app/courses/math-6-period-3/students", icon: <Users size={16} /> },
+  { label: "Class patterns", href: "/app/courses/math-6-period-3/insights", icon: <ListChecks size={16} /> },
+  { label: "Decisions", href: "/app/courses/math-6-period-3/interventions", icon: <BookOpen size={16} /> },
   { label: "Gradebook", href: "/app/courses/math-6-period-3/gradebook", icon: <Table2 size={16} /> },
-  { label: "Interventions", href: "/app/courses/math-6-period-3/interventions", icon: <BookOpen size={16} /> },
-  { label: "Simulated passback", href: "/app/courses/math-6-period-3/passback", icon: <Share2 size={16} /> },
-  { label: "Activity history", href: "/app/activity", icon: <History size={16} /> },
-
+  { label: "Records · assignments", href: "/app/courses/math-6-period-3/assignments", icon: <ClipboardList size={16} /> },
+  { label: "Records · simulated passback", href: "/app/courses/math-6-period-3/passback", icon: <Share2 size={16} /> },
+  { label: "Records · activity history", href: "/app/activity", icon: <History size={16} /> },
 ];
+
 
 const STUDENT_NAV = [
   { label: "Home", href: "/app/student/home", icon: <LayoutDashboard size={16} /> },
@@ -103,7 +103,7 @@ export function AppShell({ children }: { children: ReactNode }) {
           {PILOT_CONTENT.demoBadge}
         </Badge>
         <div className="app-topbar__spacer" />
-        <label className="row-8" style={{ fontSize: "var(--fs-caption)", color: "var(--fg-muted)" }}>
+        <label className="hrow-8" style={{ fontSize: "var(--fs-caption)", color: "var(--fg-muted)" }}>
           <span>Demo role</span>
           <Select
             value={role}

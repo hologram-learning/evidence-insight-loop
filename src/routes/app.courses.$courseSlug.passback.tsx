@@ -14,10 +14,10 @@ import {
   Tr,
 } from "@/design-system/code-companions-0f8a99";
 import { RoleGate } from "@/components/RoleGate";
-import { ASSIGNMENTS, COURSES, STUDENTS } from "@/data/seed";
+import { DemoDisclosure } from "@/components/workspace";
+import { COURSES, STUDENTS } from "@/data/seed";
 import { useDemo } from "@/lib/demo-state";
 import { MASTERY_LABEL, formatDemoTimestamp } from "@/lib/mastery";
-import type { PassbackRecord } from "@/types/domain";
 
 export const Route = createFileRoute("/app/courses/$courseSlug/passback")({
   component: PassbackPage,
@@ -25,33 +25,15 @@ export const Route = createFileRoute("/app/courses/$courseSlug/passback")({
 
 function PassbackPage() {
   const { courseSlug } = Route.useParams();
-  const { state, addPassback, confirmPassback } = useDemo();
+  const { state, preparePassbackBatch, confirmPassback } = useDemo();
   const course = COURSES.find((c) => c.slug === courseSlug);
   const approved = state.interventions.filter(
     (draft) => draft.courseId === course?.id && draft.status === "approved",
   );
-
-  function prepare() {
-    const draft = approved[0];
-    if (!draft) return;
-    draft.studentIds.forEach((studentId) => {
-      const student = STUDENTS.find((s) => s.id === studentId);
-      if (!student) return;
-      const record: PassbackRecord = {
-        id: `pb-${studentId}-${Date.now().toString(36)}`,
-        interventionId: draft.id,
-        studentId,
-        assignmentId: ASSIGNMENTS[0]!.id,
-        standardCode: draft.standardCode,
-        masteryState: student.mastery,
-        teacherStatus: "Approved by teacher",
-        destinationLabel: "Existing LMS — simulated destination",
-        confirmed: false,
-        preparedOn: new Date().toISOString(),
-      };
-      addPassback(record);
-    });
-  }
+  const draft = approved[0];
+  const alreadyPrepared = draft
+    ? state.passbacks.some((record) => record.interventionId === draft.id)
+    : false;
 
   return (
     <RoleGate allow={["teacher"]}>
@@ -67,8 +49,8 @@ function PassbackPage() {
       />
 
       <Alert tone="warning" title="Nothing is transmitted" className="mt-6">
-        This build has no LMS connection. Preparing and confirming a passback writes entries to the
-        local activity history only.
+        Demo only — no data is sent to an LMS. Preparing and confirming a passback writes entries to
+        the local activity history only.
       </Alert>
 
       {approved.length === 0 ? (
@@ -91,10 +73,21 @@ function PassbackPage() {
               Builds a row per student showing the standard, the ordinal mastery level, and the teacher
               status that would accompany it.
             </p>
-            <div>
-              <Button variant="accent" onClick={prepare}>
-                Prepare simulated passback
+            <div className="stack-8">
+              <Button
+                variant="accent"
+                disabled={alreadyPrepared || !draft}
+                onClick={() => draft && preparePassbackBatch(draft.id)}
+              >
+                {alreadyPrepared ? "Batch already prepared" : "Prepare simulated passback"}
               </Button>
+              {alreadyPrepared && (
+                <p className="micro-label" style={{ margin: 0 }}>
+                  One preview batch exists for this approved decision. Preparing again would not add
+                  duplicate rows.
+                </p>
+              )}
+              <DemoDisclosure />
             </div>
           </div>
         </div>

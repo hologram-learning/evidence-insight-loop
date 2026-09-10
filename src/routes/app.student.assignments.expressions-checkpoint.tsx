@@ -63,7 +63,7 @@ function StudentCheckpoint() {
               placeholder={"3(x + 4) = 21\n..."}
             />
           </label>
-          <div className="row-16">
+          <div className="hrow-16">
             <Button
               variant="accent"
               disabled={work.trim().length === 0}

@@ -78,7 +78,7 @@ function LaunchPage() {
                     </div>
                   ))}
                 </dl>
-                <div className="row-16">
+                <div className="hrow-16">
                   <Link
                     to="/app/courses/$courseSlug/overview"
                     params={{ courseSlug: launchContext!.courseSlug }}

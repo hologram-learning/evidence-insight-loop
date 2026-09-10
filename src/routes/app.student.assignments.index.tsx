@@ -34,7 +34,7 @@ function StudentAssignments() {
             const isCheckpoint = assignment.slug === "expressions-checkpoint";
             return (
               <div key={assignment.id} className="housing">
-                <div className="housing-inner row-16" style={{ padding: "var(--s-24)", justifyContent: "space-between" }}>
+                <div className="housing-inner hrow-16" style={{ padding: "var(--s-24)", justifyContent: "space-between" }}>
                   <div>
                     <span className="micro-label">{assignment.standardCodes.join(" · ")}</span>
                     <h2 className="display-type" style={{ fontSize: "var(--fs-h4)", margin: "var(--s-4) 0" }}>
@@ -42,7 +42,7 @@ function StudentAssignments() {
                     </h2>
                     <span className="micro-label">Due {formatDemoDate(assignment.dueDate)}</span>
                   </div>
-                  <div className="row-8">
+                  <div className="hrow-8">
                     <Badge tone={submitted ? "mint" : "neutral"} dot>
                       {submitted ? "Submitted" : "Not started"}
                     </Badge>

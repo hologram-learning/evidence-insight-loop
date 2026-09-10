@@ -36,9 +36,9 @@ function LeaderStandards() {
       />
       <ReadOnlyNotice />
 
-      <div className="row-16" style={{ marginTop: "var(--s-24)", flexWrap: "wrap" }}>
+      <div className="hrow-16" style={{ marginTop: "var(--s-24)", flexWrap: "wrap" }}>
         {(Object.keys(counts) as MasteryState[]).map((stateKey) => (
-          <div key={stateKey} className="inset-plane row-8" style={{ padding: "var(--s-12) var(--s-16)" }}>
+          <div key={stateKey} className="inset-plane hrow-8" style={{ padding: "var(--s-12) var(--s-16)" }}>
             <MasteryPill level={masteryLevel(stateKey)} label={MASTERY_LABEL[stateKey]} />
             <strong>{counts[stateKey]}</strong>
           </div>

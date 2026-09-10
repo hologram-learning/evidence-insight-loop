@@ -9,14 +9,83 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ThankYouRouteImport } from './routes/thank-you'
+import { Route as SecurityRouteImport } from './routes/security'
+import { Route as ResearchRouteImport } from './routes/research'
+import { Route as ProductRouteImport } from './routes/product'
+import { Route as PilotLaunchRouteImport } from './routes/pilot-launch'
+import { Route as LaunchRouteImport } from './routes/launch'
+import { Route as HowItWorksRouteImport } from './routes/how-it-works'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as AppRouteImport } from './routes/app'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AppIndexRouteImport } from './routes/app.index'
 import { Route as Char91__mockupChar93PreviewSplatRouteImport } from './routes/[__mockup].preview.$'
 import { Route as Char91__componentChar93PreviewSplatRouteImport } from './routes/[__component].preview.$'
+import { Route as AppCoursesCourseSlugRosterRouteImport } from './routes/app.courses.$courseSlug.roster'
+import { Route as AppCoursesCourseSlugOverviewRouteImport } from './routes/app.courses.$courseSlug.overview'
+import { Route as AppCoursesCourseSlugStudentsStudentSlugRouteImport } from './routes/app.courses.$courseSlug.students.$studentSlug'
 
+const ThankYouRoute = ThankYouRouteImport.update({
+  id: '/thank-you',
+  path: '/thank-you',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SecurityRoute = SecurityRouteImport.update({
+  id: '/security',
+  path: '/security',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResearchRoute = ResearchRouteImport.update({
+  id: '/research',
+  path: '/research',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductRoute = ProductRouteImport.update({
+  id: '/product',
+  path: '/product',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PilotLaunchRoute = PilotLaunchRouteImport.update({
+  id: '/pilot-launch',
+  path: '/pilot-launch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LaunchRoute = LaunchRouteImport.update({
+  id: '/launch',
+  path: '/launch',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HowItWorksRoute = HowItWorksRouteImport.update({
+  id: '/how-it-works',
+  path: '/how-it-works',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AppRoute = AppRouteImport.update({
+  id: '/app',
+  path: '/app',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AppIndexRoute = AppIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AppRoute,
 } as any)
 const Char91__mockupChar93PreviewSplatRoute =
   Char91__mockupChar93PreviewSplatRouteImport.update({
@@ -30,45 +99,242 @@ const Char91__componentChar93PreviewSplatRoute =
     path: '/__component/preview/$',
     getParentRoute: () => rootRouteImport,
   } as any)
+const AppCoursesCourseSlugRosterRoute =
+  AppCoursesCourseSlugRosterRouteImport.update({
+    id: '/courses/$courseSlug/roster',
+    path: '/courses/$courseSlug/roster',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCoursesCourseSlugOverviewRoute =
+  AppCoursesCourseSlugOverviewRouteImport.update({
+    id: '/courses/$courseSlug/overview',
+    path: '/courses/$courseSlug/overview',
+    getParentRoute: () => AppRoute,
+  } as any)
+const AppCoursesCourseSlugStudentsStudentSlugRoute =
+  AppCoursesCourseSlugStudentsStudentSlugRouteImport.update({
+    id: '/courses/$courseSlug/students/$studentSlug',
+    path: '/courses/$courseSlug/students/$studentSlug',
+    getParentRoute: () => AppRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/launch': typeof LaunchRoute
+  '/pilot-launch': typeof PilotLaunchRoute
+  '/product': typeof ProductRoute
+  '/research': typeof ResearchRoute
+  '/security': typeof SecurityRoute
+  '/thank-you': typeof ThankYouRoute
+  '/app/': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
+  '/app/courses/$courseSlug/overview': typeof AppCoursesCourseSlugOverviewRoute
+  '/app/courses/$courseSlug/roster': typeof AppCoursesCourseSlugRosterRoute
+  '/app/courses/$courseSlug/students/$studentSlug': typeof AppCoursesCourseSlugStudentsStudentSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/launch': typeof LaunchRoute
+  '/pilot-launch': typeof PilotLaunchRoute
+  '/product': typeof ProductRoute
+  '/research': typeof ResearchRoute
+  '/security': typeof SecurityRoute
+  '/thank-you': typeof ThankYouRoute
+  '/app': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
+  '/app/courses/$courseSlug/overview': typeof AppCoursesCourseSlugOverviewRoute
+  '/app/courses/$courseSlug/roster': typeof AppCoursesCourseSlugRosterRoute
+  '/app/courses/$courseSlug/students/$studentSlug': typeof AppCoursesCourseSlugStudentsStudentSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/app': typeof AppRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/faq': typeof FaqRoute
+  '/how-it-works': typeof HowItWorksRoute
+  '/launch': typeof LaunchRoute
+  '/pilot-launch': typeof PilotLaunchRoute
+  '/product': typeof ProductRoute
+  '/research': typeof ResearchRoute
+  '/security': typeof SecurityRoute
+  '/thank-you': typeof ThankYouRoute
+  '/app/': typeof AppIndexRoute
   '/__component/preview/$': typeof Char91__componentChar93PreviewSplatRoute
   '/__mockup/preview/$': typeof Char91__mockupChar93PreviewSplatRoute
+  '/app/courses/$courseSlug/overview': typeof AppCoursesCourseSlugOverviewRoute
+  '/app/courses/$courseSlug/roster': typeof AppCoursesCourseSlugRosterRoute
+  '/app/courses/$courseSlug/students/$studentSlug': typeof AppCoursesCourseSlugStudentsStudentSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/__component/preview/$' | '/__mockup/preview/$'
+  fullPaths:
+    | '/'
+    | '/app'
+    | '/contact'
+    | '/faq'
+    | '/how-it-works'
+    | '/launch'
+    | '/pilot-launch'
+    | '/product'
+    | '/research'
+    | '/security'
+    | '/thank-you'
+    | '/app/'
+    | '/__component/preview/$'
+    | '/__mockup/preview/$'
+    | '/app/courses/$courseSlug/overview'
+    | '/app/courses/$courseSlug/roster'
+    | '/app/courses/$courseSlug/students/$studentSlug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/__component/preview/$' | '/__mockup/preview/$'
-  id: '__root__' | '/' | '/__component/preview/$' | '/__mockup/preview/$'
+  to:
+    | '/'
+    | '/contact'
+    | '/faq'
+    | '/how-it-works'
+    | '/launch'
+    | '/pilot-launch'
+    | '/product'
+    | '/research'
+    | '/security'
+    | '/thank-you'
+    | '/app'
+    | '/__component/preview/$'
+    | '/__mockup/preview/$'
+    | '/app/courses/$courseSlug/overview'
+    | '/app/courses/$courseSlug/roster'
+    | '/app/courses/$courseSlug/students/$studentSlug'
+  id:
+    | '__root__'
+    | '/'
+    | '/app'
+    | '/contact'
+    | '/faq'
+    | '/how-it-works'
+    | '/launch'
+    | '/pilot-launch'
+    | '/product'
+    | '/research'
+    | '/security'
+    | '/thank-you'
+    | '/app/'
+    | '/__component/preview/$'
+    | '/__mockup/preview/$'
+    | '/app/courses/$courseSlug/overview'
+    | '/app/courses/$courseSlug/roster'
+    | '/app/courses/$courseSlug/students/$studentSlug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AppRoute: typeof AppRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  FaqRoute: typeof FaqRoute
+  HowItWorksRoute: typeof HowItWorksRoute
+  LaunchRoute: typeof LaunchRoute
+  PilotLaunchRoute: typeof PilotLaunchRoute
+  ProductRoute: typeof ProductRoute
+  ResearchRoute: typeof ResearchRoute
+  SecurityRoute: typeof SecurityRoute
+  ThankYouRoute: typeof ThankYouRoute
   Char91__componentChar93PreviewSplatRoute: typeof Char91__componentChar93PreviewSplatRoute
   Char91__mockupChar93PreviewSplatRoute: typeof Char91__mockupChar93PreviewSplatRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/thank-you': {
+      id: '/thank-you'
+      path: '/thank-you'
+      fullPath: '/thank-you'
+      preLoaderRoute: typeof ThankYouRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/security': {
+      id: '/security'
+      path: '/security'
+      fullPath: '/security'
+      preLoaderRoute: typeof SecurityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/research': {
+      id: '/research'
+      path: '/research'
+      fullPath: '/research'
+      preLoaderRoute: typeof ResearchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product': {
+      id: '/product'
+      path: '/product'
+      fullPath: '/product'
+      preLoaderRoute: typeof ProductRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pilot-launch': {
+      id: '/pilot-launch'
+      path: '/pilot-launch'
+      fullPath: '/pilot-launch'
+      preLoaderRoute: typeof PilotLaunchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/launch': {
+      id: '/launch'
+      path: '/launch'
+      fullPath: '/launch'
+      preLoaderRoute: typeof LaunchRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/how-it-works': {
+      id: '/how-it-works'
+      path: '/how-it-works'
+      fullPath: '/how-it-works'
+      preLoaderRoute: typeof HowItWorksRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/app': {
+      id: '/app'
+      path: '/app'
+      fullPath: '/app'
+      preLoaderRoute: typeof AppRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/app/': {
+      id: '/app/'
+      path: '/'
+      fullPath: '/app/'
+      preLoaderRoute: typeof AppIndexRouteImport
+      parentRoute: typeof AppRoute
     }
     '/__mockup/preview/$': {
       id: '/__mockup/preview/$'
@@ -84,11 +350,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof Char91__componentChar93PreviewSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/app/courses/$courseSlug/roster': {
+      id: '/app/courses/$courseSlug/roster'
+      path: '/courses/$courseSlug/roster'
+      fullPath: '/app/courses/$courseSlug/roster'
+      preLoaderRoute: typeof AppCoursesCourseSlugRosterRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/courses/$courseSlug/overview': {
+      id: '/app/courses/$courseSlug/overview'
+      path: '/courses/$courseSlug/overview'
+      fullPath: '/app/courses/$courseSlug/overview'
+      preLoaderRoute: typeof AppCoursesCourseSlugOverviewRouteImport
+      parentRoute: typeof AppRoute
+    }
+    '/app/courses/$courseSlug/students/$studentSlug': {
+      id: '/app/courses/$courseSlug/students/$studentSlug'
+      path: '/courses/$courseSlug/students/$studentSlug'
+      fullPath: '/app/courses/$courseSlug/students/$studentSlug'
+      preLoaderRoute: typeof AppCoursesCourseSlugStudentsStudentSlugRouteImport
+      parentRoute: typeof AppRoute
+    }
   }
 }
 
+interface AppRouteChildren {
+  AppIndexRoute: typeof AppIndexRoute
+  AppCoursesCourseSlugOverviewRoute: typeof AppCoursesCourseSlugOverviewRoute
+  AppCoursesCourseSlugRosterRoute: typeof AppCoursesCourseSlugRosterRoute
+  AppCoursesCourseSlugStudentsStudentSlugRoute: typeof AppCoursesCourseSlugStudentsStudentSlugRoute
+}
+
+const AppRouteChildren: AppRouteChildren = {
+  AppIndexRoute: AppIndexRoute,
+  AppCoursesCourseSlugOverviewRoute: AppCoursesCourseSlugOverviewRoute,
+  AppCoursesCourseSlugRosterRoute: AppCoursesCourseSlugRosterRoute,
+  AppCoursesCourseSlugStudentsStudentSlugRoute:
+    AppCoursesCourseSlugStudentsStudentSlugRoute,
+}
+
+const AppRouteWithChildren = AppRoute._addFileChildren(AppRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AppRoute: AppRouteWithChildren,
+  ContactRoute: ContactRoute,
+  FaqRoute: FaqRoute,
+  HowItWorksRoute: HowItWorksRoute,
+  LaunchRoute: LaunchRoute,
+  PilotLaunchRoute: PilotLaunchRoute,
+  ProductRoute: ProductRoute,
+  ResearchRoute: ResearchRoute,
+  SecurityRoute: SecurityRoute,
+  ThankYouRoute: ThankYouRoute,
   Char91__componentChar93PreviewSplatRoute:
     Char91__componentChar93PreviewSplatRoute,
   Char91__mockupChar93PreviewSplatRoute: Char91__mockupChar93PreviewSplatRoute,

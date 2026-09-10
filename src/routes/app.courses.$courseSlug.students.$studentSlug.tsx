@@ -49,7 +49,7 @@ function StudentEvidencePage() {
         crumbs={[
           { label: "Workspace", href: "/app" },
           { label: course?.name ?? "Course", href: `/app/courses/${courseSlug}/overview` },
-          { label: "Roster", href: `/app/courses/${courseSlug}/roster` },
+          { label: "Students", href: `/app/courses/${courseSlug}/students` },
           { label: student.name },
         ]}
         title={student.name}
@@ -146,13 +146,18 @@ function StudentEvidencePage() {
       </div>
 
       <div className="row-16" style={{ marginTop: "var(--s-24)" }}>
-        <Link to="/app/courses/$courseSlug/interventions" params={{ courseSlug }} className="holo-btn holo-btn--accent holo-btn--sm">
+        <Link
+          to="/app/courses/$courseSlug/interventions/$draftSlug"
+          params={{ courseSlug, draftSlug: "draft-warm-up" }}
+          className="holo-btn holo-btn--accent holo-btn--sm"
+        >
           Review the drafted next step
         </Link>
-        <Link to="/app/courses/$courseSlug/roster" params={{ courseSlug }} className="holo-btn holo-btn--ghost holo-btn--sm">
-          Back to roster
+        <Link to="/app/courses/$courseSlug/students" params={{ courseSlug }} className="holo-btn holo-btn--ghost holo-btn--sm">
+          Back to students
         </Link>
       </div>
+
     </RoleGate>
   );
 }

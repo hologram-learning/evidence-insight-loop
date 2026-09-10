@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { ASSIGNMENTS, INTERVENTION_DRAFTS, STUDENTS } from "@/data/seed";
 import { ROLE_ACTOR } from "@/lib/permissions";
 import {
   clearDemoState,
@@ -26,10 +27,12 @@ import {
 } from "@/lib/ltiContext";
 import type {
   Assignment,
+  AuditContext,
   AuditEvent,
   DemoRole,
   InterventionDraft,
   PassbackRecord,
+  TeacherEdit,
 } from "@/types/domain";
 import type { LtiLaunchContext } from "@/types/lti";
 
@@ -38,6 +41,13 @@ interface AuditInput {
   target: string;
   description: string;
   role?: DemoRole;
+  context?: AuditContext;
+}
+
+export interface DraftPlan {
+  objective: string;
+  moves: string[];
+  exitCheck: string;
 }
 
 interface DemoContextValue {
@@ -54,10 +64,19 @@ interface DemoContextValue {
   addAssignment: (assignment: Assignment) => void;
   saveSubmission: (studentId: string, assignmentId: string, lines: string[]) => void;
   updateIntervention: (id: string, patch: Partial<InterventionDraft>, audit: AuditInput) => void;
+  /** Teacher rewrite. The agent's original recommendation is never touched. */
+  editDraft: (id: string, next: DraftPlan, mode?: "edit" | "override") => void;
+  approveDraft: (id: string) => void;
+  declineDraft: (id: string, reason: string) => void;
+  /** Restores this draft to the seeded agent recommendation. */
+  resetDraft: (id: string) => void;
+  /** Idempotent: one simulated batch per approved intervention. */
+  preparePassbackBatch: (interventionId: string) => void;
   addPassback: (record: PassbackRecord) => void;
   confirmPassback: (id: string) => void;
   resetDemo: () => void;
 }
+
 
 const DemoContext = createContext<DemoContextValue | null>(null);
 
@@ -105,7 +124,9 @@ export function DemoStateProvider({ children }: { children: ReactNode }) {
       action: input.action,
       target: input.target,
       description: input.description,
+      context: input.context,
     };
+
     return [...current.audit, event];
   }, []);
 
@@ -196,6 +217,186 @@ export function DemoStateProvider({ children }: { children: ReactNode }) {
           ),
           audit: pushAudit(prev, audit),
         })),
+      editDraft: (id, next, mode = "edit") =>
+        setState((prev) => {
+          const draft = prev.interventions.find((item) => item.id === id);
+          if (!draft) return prev;
+          const now = new Date().toISOString();
+          const edits: TeacherEdit[] = [...(draft.teacherEdits ?? [])];
+          const record = (
+            field: TeacherEdit["field"],
+            previous: string,
+            nextValue: string,
+          ) => {
+            if (previous === nextValue) return;
+            edits.push({
+              id: makeId("edit"),
+              field,
+              previous,
+              next: nextValue,
+              editedOn: now,
+              editedBy: ROLE_ACTOR[prev.role],
+            });
+          };
+          record("objective", draft.objective, next.objective);
+          record("moves", draft.moves.join(" | "), next.moves.join(" | "));
+          record("exitCheck", draft.exitCheck, next.exitCheck);
+          if (edits.length === (draft.teacherEdits ?? []).length) return prev;
+          return {
+            ...prev,
+            interventions: prev.interventions.map((item) =>
+              item.id === id
+                ? {
+                    ...item,
+                    objective: next.objective,
+                    moves: next.moves,
+                    exitCheck: next.exitCheck,
+                    teacherEdits: edits,
+                    overridden: mode === "override" ? true : item.overridden,
+                  }
+                : item,
+            ),
+            audit: pushAudit(prev, {
+              action: mode === "override" ? "Draft overridden by teacher" : "Draft edited by teacher",
+              target: draft.title,
+              description:
+                mode === "override"
+                  ? "The teacher replaced the agent's plan with their own wording. The original recommendation is preserved."
+                  : "The teacher rewrote part of the drafted plan. The original recommendation is preserved.",
+              context: {
+                courseId: draft.courseId,
+                standardCode: draft.standardCode,
+                studentIds: draft.studentIds,
+                recommendationId: draft.id,
+                resultingState: mode === "override" ? "overridden draft" : "teacher-edited draft",
+              },
+            }),
+          };
+        }),
+      approveDraft: (id) =>
+        setState((prev) => {
+          const draft = prev.interventions.find((item) => item.id === id);
+          if (!draft || draft.status === "approved") return prev;
+          return {
+            ...prev,
+            interventions: prev.interventions.map((item) =>
+              item.id === id
+                ? {
+                    ...item,
+                    status: "approved",
+                    decidedOn: new Date().toISOString(),
+                    decidedBy: ROLE_ACTOR[prev.role],
+                  }
+                : item,
+            ),
+            audit: pushAudit(prev, {
+              action: "Intervention approved",
+              target: draft.title,
+              description: `The teacher approved the ${draft.durationMinutes}-minute move for ${draft.studentIds.length} learners. Nothing was sent to an LMS.`,
+              context: {
+                courseId: draft.courseId,
+                standardCode: draft.standardCode,
+                studentIds: draft.studentIds,
+                recommendationId: draft.id,
+                decision: "approved",
+                resultingState: "approved locally · simulated passback unlocked",
+              },
+            }),
+          };
+        }),
+      declineDraft: (id, reason) =>
+        setState((prev) => {
+          const draft = prev.interventions.find((item) => item.id === id);
+          if (!draft || draft.status === "approved") return prev;
+          return {
+            ...prev,
+            interventions: prev.interventions.map((item) =>
+              item.id === id
+                ? {
+                    ...item,
+                    status: "declined",
+                    declineReason: reason,
+                    decidedOn: new Date().toISOString(),
+                    decidedBy: ROLE_ACTOR[prev.role],
+                  }
+                : item,
+            ),
+            audit: pushAudit(prev, {
+              action: "Intervention declined",
+              target: draft.title,
+              description: `The teacher declined the drafted move. Reason: ${reason}`,
+              context: {
+                courseId: draft.courseId,
+                standardCode: draft.standardCode,
+                studentIds: draft.studentIds,
+                recommendationId: draft.id,
+                decision: "declined",
+                resultingState: "declined locally · no passback available",
+              },
+            }),
+          };
+        }),
+      resetDraft: (id) =>
+        setState((prev) => {
+          const seeded = INTERVENTION_DRAFTS.find((item) => item.id === id);
+          if (!seeded) return prev;
+          return {
+            ...prev,
+            interventions: prev.interventions.map((item) =>
+              item.id === id ? JSON.parse(JSON.stringify(seeded)) : item,
+            ),
+            passbacks: prev.passbacks.filter((record) => record.interventionId !== id),
+            audit: pushAudit(prev, {
+              action: "Draft reset to the original recommendation",
+              target: seeded.title,
+              description:
+                "The teacher restored the seeded agent recommendation. Earlier decisions remain in the activity history.",
+              context: { recommendationId: id, resultingState: "draft awaiting teacher review" },
+            }),
+          };
+        }),
+      preparePassbackBatch: (interventionId) =>
+        setState((prev) => {
+          const draft = prev.interventions.find((item) => item.id === interventionId);
+          if (!draft || draft.status !== "approved") return prev;
+          if (prev.passbacks.some((record) => record.interventionId === interventionId)) return prev;
+          const preparedOn = new Date().toISOString();
+          const records: PassbackRecord[] = draft.studentIds.flatMap((studentId) => {
+            const student = STUDENTS.find((item) => item.id === studentId);
+            if (!student) return [];
+            return [
+              {
+                id: `pb-${studentId}-${preparedOn}`,
+                interventionId,
+                studentId,
+                assignmentId: ASSIGNMENTS[0]!.id,
+                standardCode: draft.standardCode,
+                masteryState: student.mastery,
+                teacherStatus: "Approved by teacher",
+                destinationLabel: "Existing LMS — simulated destination",
+                confirmed: false,
+                preparedOn,
+              },
+            ];
+          });
+          return {
+            ...prev,
+            passbacks: [...prev.passbacks, ...records],
+            audit: pushAudit(prev, {
+              action: "Simulated passback prepared",
+              target: `${draft.standardCode} · simulated pilot destination`,
+              description: `A single preview batch of ${records.length} rows was prepared. Demo only — no data is sent to an LMS.`,
+              context: {
+                courseId: draft.courseId,
+                standardCode: draft.standardCode,
+                studentIds: draft.studentIds,
+                recommendationId: draft.id,
+                resultingState: "passback preview prepared (simulated)",
+              },
+            }),
+          };
+        }),
+
       addPassback: (record) =>
         setState((prev) => ({
           ...prev,

@@ -6,7 +6,7 @@ export type MasteryState = "beginning" | "developing" | "approaching" | "secure"
 
 export type PrerequisiteRisk = "low" | "moderate" | "high";
 
-export type DecisionStatus = "draft" | "approved" | "declined";
+export type DecisionStatus = "draft" | "approved" | "declined" | "overridden";
 
 export type AssignmentStatus = "draft" | "published" | "collecting" | "reviewed";
 
@@ -144,6 +144,26 @@ export interface MasteryRecord {
   rationale: string;
 }
 
+/** The agent's original wording, frozen the moment the draft is generated. */
+export interface Recommendation {
+  objective: string;
+  moves: string[];
+  exitCheck: string;
+  durationMinutes: number;
+  rationale: string;
+  confidence: number;
+  limitations: string;
+}
+
+export interface TeacherEdit {
+  id: string;
+  field: "objective" | "moves" | "exitCheck" | "plan";
+  previous: string;
+  next: string;
+  editedOn: string;
+  editedBy: string;
+}
+
 export interface InterventionDraft {
   id: string;
   slug: string;
@@ -160,6 +180,11 @@ export interface InterventionDraft {
   declineReason?: string;
   decidedOn?: string;
   decidedBy?: string;
+  /** Immutable agent proposal — always visible next to whatever the teacher wrote. */
+  originalRecommendation: Recommendation;
+  teacherEdits: TeacherEdit[];
+  overridden?: boolean;
+  decisionNote?: string;
 }
 
 export interface PassbackRecord {
@@ -176,6 +201,17 @@ export interface PassbackRecord {
   confirmedOn?: string;
 }
 
+/** Structured context so a Phase 2 governance board can read the same record. */
+export interface AuditContext {
+  courseId?: string;
+  standardCode?: string;
+  studentIds?: string[];
+  artifactIds?: string[];
+  recommendationId?: string;
+  decision?: DecisionStatus;
+  resultingState?: string;
+}
+
 export interface AuditEvent {
   id: string;
   actor: string;
@@ -184,7 +220,9 @@ export interface AuditEvent {
   action: string;
   target: string;
   description: string;
+  context?: AuditContext;
 }
+
 
 export interface PilotRequest {
   fullName: string;

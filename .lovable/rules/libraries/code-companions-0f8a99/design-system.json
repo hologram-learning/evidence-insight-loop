@@ -2,7 +2,7 @@
   "meta": {
     "name": "Code Companions",
     "package": "@ws-4bvz3yy9ll9vnnrq78dn/e10f8cf4-f018-4283-a76e-a7c2ee0ca228",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "framework": "react",
     "css_framework": "css-variables",
     "starter_template": "custom_design_system",
@@ -14,7 +14,7 @@
       "#enrichment": "b3324967f00ed850cafc8fae55ad6dba0481d008ea3ae693060408ca125971c7",
       ".dsignore": "2c7d76468c15bc0f1499420154f01ae3",
       ".gitignore": "6059213806e442947666752f3db6bfdc",
-      ".lovable/meta.yaml": "d1f4edf35a22268edbfbdaca9f21c0f1",
+      ".lovable/meta.yaml": "731dc53c4191bd35cabf4a0af7095d7f",
       ".lovable/plan/hologram-design-system-starter-tokens-and-components-2026-09-08.md": "e3a38db514e9e522946953c7f480b19b",
       ".lovable/sources.yaml": "aa43d87254623f7331b9d66c8dfba7f7",
       ".lovable/system.md": "ff1ab08684fe59b956211bda6635fc31",

@@ -1,6 +1,8 @@
 @import "tailwindcss";
 @import "./design-system/code-companions-0f8a99/design-system/hologram/styles/theme.css";
 
+@source "./design-system/code-companions-0f8a99";
+
 /* Tailwind maps onto the Hologram design-system tokens.
    No competing values are declared here — every entry points at an existing token. */
 @theme inline {
@@ -19,6 +21,39 @@
   --font-sans: var(--font-sans);
   --font-display: var(--font-display);
   --font-mono: var(--font-mono);
+
+  --spacing-s-2: var(--s-2);
+  --spacing-s-4: var(--s-4);
+  --spacing-s-6: var(--s-6);
+  --spacing-s-8: var(--s-8);
+  --spacing-s-12: var(--s-12);
+  --spacing-s-16: var(--s-16);
+  --spacing-s-24: var(--s-24);
+  --spacing-s-32: var(--s-32);
+  --spacing-s-48: var(--s-48);
+  --spacing-s-64: var(--s-64);
+  --spacing-s-96: var(--s-96);
+  --radius-sm: var(--r-sm);
+  --radius-md: var(--r-md);
+  --radius-lg: var(--r-lg);
+  --radius-xl: var(--r-xl);
+  --radius-2xl: var(--r-2xl);
+  --radius-pill: var(--r-pill);
+
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-fg: var(--brand-primary-fg);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-fg: var(--brand-accent-fg);
+  --color-status-secure: var(--status-secure);
+  --color-status-approaching: var(--status-approaching);
+  --color-status-developing: var(--status-developing);
+  --color-status-beginning: var(--status-beginning);
+  --color-status-risk: var(--status-risk);
+  --color-decision-draft: var(--decision-draft);
+  --color-decision-approved: var(--decision-approved);
+  --color-decision-declined: var(--decision-declined);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
 }
 
 /* Semantic + brand layer. Points at design-system primitives; declares no new palettes. */

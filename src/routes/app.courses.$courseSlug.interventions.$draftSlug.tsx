@@ -26,7 +26,9 @@ import { COURSES, EVIDENCE, SUBMISSIONS } from "@/data/seed";
 import { useDemo, type DraftPlan } from "@/lib/demo-state";
 import { isReadOnly } from "@/lib/permissions";
 import { MASTERY_LABEL, formatDemoTimestamp } from "@/lib/mastery";
-import { masteryFor, studentsById } from "@/lib/records";
+import { chainFor, masteryFor, prerequisiteContext, studentsById } from "@/lib/records";
+import { DraftActivityHistory, SeededMasteryHistory } from "@/components/DecisionHistory";
+import { standardByCode } from "@/data/standards";
 
 export const Route = createFileRoute("/app/courses/$courseSlug/interventions/$draftSlug")({
   component: DecisionWorkspace,
@@ -46,6 +48,7 @@ function DecisionWorkspace() {
   const [plan, setPlan] = useState<DraftPlan | null>(null);
   const [declineReason, setDeclineReason] = useState("");
   const [override, setOverride] = useState(false);
+  const [resetOpen, setResetOpen] = useState(false);
 
   const students = useMemo(() => studentsById(draft?.studentIds ?? []), [draft?.studentIds]);
   const receipt = useMemo(
@@ -73,7 +76,20 @@ function DecisionWorkspace() {
   const artifacts = EVIDENCE.filter(
     (item) => draft.studentIds.includes(item.studentId) && item.standardCode === draft.standardCode,
   );
-  const sophiaSubmission = SUBMISSIONS.find((item) => item.studentId === "stu-sophia");
+  const submissions = SUBMISSIONS.filter((item) => draft.studentIds.includes(item.studentId));
+  const prereqs = prerequisiteContext(draft.standardCode, students);
+  // Primary prerequisite = the one with the most affected learners below Secure (ties keep data order).
+  const primary = prereqs.reduce<(typeof prereqs)[number] | undefined>(
+    (best, item) => (item.belowSecure > 0 && (!best || item.belowSecure > best.belowSecure) ? item : best),
+    undefined,
+  );
+  const primaryCode = primary?.relation.fromCode;
+  const focusStates = students.map((student) => masteryFor(student, draft.standardCode));
+  const focusSummary = Object.entries(MASTERY_LABEL)
+    .map(([key, label]) => [label, focusStates.filter((state) => state === key).length] as const)
+    .filter(([, count]) => count > 0)
+    .map(([label, count]) => `${count} ${label}`)
+    .join(" · ");
 
   const openEditor = (asOverride: boolean) => {
     setPlan({ objective: draft.objective, moves: [...draft.moves], exitCheck: draft.exitCheck });
@@ -107,8 +123,8 @@ function DecisionWorkspace() {
           values={{
             Artifact: `${artifacts.length} captured responses`,
             Standard: draft.standardCode,
-            Mastery: "Developing across the group",
-            Risk: "Prerequisite gap: 5.OA.A.1",
+            Mastery: focusSummary || "Not assessed",
+            Risk: primaryCode ? `Prerequisite gap: ${primaryCode}` : "No recorded prerequisite gap",
             "Teacher action": draft.status === "draft" ? "Awaiting your decision" : draft.status,
           }}
         />
@@ -123,9 +139,11 @@ function DecisionWorkspace() {
               <p className="prose-measure" style={{ margin: 0 }}>
                 {draft.evidenceSignal}
               </p>
-              {sophiaSubmission && (
-                <div className="inset-plane stack-8" style={{ padding: "var(--s-16)" }}>
-                  <span className="micro-label">Sophia Martinez · checkpoint response</span>
+              {submissions.map((submission) => (
+                <div key={submission.id} className="inset-plane stack-8" style={{ padding: "var(--s-16)" }}>
+                  <span className="micro-label">
+                    {students.find((student) => student.id === submission.studentId)?.name} · checkpoint response
+                  </span>
                   <pre
                     style={{
                       margin: 0,
@@ -134,13 +152,13 @@ function DecisionWorkspace() {
                       whiteSpace: "pre-wrap",
                     }}
                   >
-                    {sophiaSubmission.lines.join("\n")}
+                    {submission.lines.join("\n")}
                   </pre>
                   <p style={{ margin: 0, color: "var(--fg-muted)", fontSize: "var(--fs-body-sm)" }}>
-                    {sophiaSubmission.identifiedIssue}
+                    {submission.identifiedIssue}
                   </p>
                 </div>
-              )}
+              ))}
             </div>
           </Housing>
 
@@ -152,7 +170,7 @@ function DecisionWorkspace() {
                   <tr>
                     <th scope="col">Learner</th>
                     <th scope="col">{draft.standardCode}</th>
-                    <th scope="col">Prerequisite 5.OA.A.1</th>
+                    {primaryCode && <th scope="col">Prerequisite {primaryCode}</th>}
                     <th scope="col">Evidence</th>
                   </tr>
                 </thead>
@@ -174,13 +192,15 @@ function DecisionWorkspace() {
                           standardCode={draft.standardCode}
                         />
                       </td>
-                      <td>
-                        <MasteryCellButton
-                          state={masteryFor(student, "5.OA.A.1")}
-                          studentName={student.name}
-                          standardCode="5.OA.A.1"
-                        />
-                      </td>
+                      {primaryCode && (
+                        <td>
+                          <MasteryCellButton
+                            state={masteryFor(student, primaryCode)}
+                            studentName={student.name}
+                            standardCode={primaryCode}
+                          />
+                        </td>
+                      )}
                       <td style={{ color: "var(--fg-muted)" }}>{student.recentEvidence}</td>
                     </tr>
                   ))}
@@ -191,21 +211,38 @@ function DecisionWorkspace() {
 
           <Housing>
             <div className="stack-8">
-              <span className="micro-label">Prerequisite chain</span>
-              <PrerequisiteChain
-                codes={["4.NBT.B.5", "5.OA.A.1", "6.EE.A.3", "6.EE.B.7"]}
-                focusCode={draft.standardCode}
-              />
-              <WhyThisIsHere>
-                Four learners repeat one error class on {draft.standardCode}, and the upstream
-                standard 5.OA.A.1 is the shared gap.
-              </WhyThisIsHere>
+              <span className="micro-label">Prerequisites for {draft.standardCode}</span>
+              {prereqs.length === 0 ? (
+                <p style={{ margin: 0, color: "var(--fg-muted)" }}>
+                  The standards data records no prerequisite for {draft.standardCode}, so none is shown.
+                </p>
+              ) : (
+                <>
+                  <PrerequisiteChain codes={chainFor(draft.standardCode, primaryCode)} focusCode={draft.standardCode} />
+                  <ul className="stack-8" style={{ margin: 0, paddingLeft: "var(--s-16)" }}>
+                    {prereqs.map(({ relation, assessed, belowSecure }) => (
+                      <li key={relation.fromCode} style={{ color: "var(--fg-muted)", fontSize: "var(--fs-body-sm)" }}>
+                        <strong style={{ color: "var(--fg)" }}>{relation.fromCode}</strong>{" "}
+                        {standardByCode(relation.fromCode)?.label} — {belowSecure} of {assessed} learners in
+                        this group below Secure. {relation.description}
+                      </li>
+                    ))}
+                  </ul>
+                  <WhyThisIsHere>
+                    {primary
+                      ? `${primary.belowSecure} of ${students.length} learners in this group are below Secure on ${primary.relation.fromCode}, the prerequisite shown in the chain.`
+                      : `No learner in this group is below Secure on a recorded prerequisite of ${draft.standardCode}.`}
+                  </WhyThisIsHere>
+                </>
+              )}
             </div>
           </Housing>
         </div>
 
         {/* Decision plane */}
         <div className="stack-16">
+          <SeededMasteryHistory students={students} standardCode={draft.standardCode} />
+
           <AgentReasoningPanel
             rationale={draft.originalRecommendation.rationale}
             confidence={draft.originalRecommendation.confidence}
@@ -286,7 +323,7 @@ function DecisionWorkspace() {
                   >
                     Decline
                   </Button>
-                  <Button variant="ghost" onClick={() => resetDraft(draft.id)}>
+                  <Button variant="ghost" onClick={() => setResetOpen(true)}>
                     Reset to original
                   </Button>
                 </div>
@@ -294,24 +331,7 @@ function DecisionWorkspace() {
             </div>
           </Housing>
 
-          {edited && (
-            <Housing>
-              <div className="stack-8">
-                <span className="micro-label">Edit history</span>
-                {draft.teacherEdits.map((edit) => (
-                  <div key={edit.id} className="stack-8" style={{ gap: "var(--s-4)" }}>
-                    <span className="micro-label">
-                      {edit.field} · {formatDemoTimestamp(edit.editedOn)} · {edit.editedBy}
-                    </span>
-                    <p style={{ margin: 0, color: "var(--fg-subtle)", fontSize: "var(--fs-body-sm)" }}>
-                      Was: {edit.previous}
-                    </p>
-                    <p style={{ margin: 0, fontSize: "var(--fs-body-sm)" }}>Now: {edit.next}</p>
-                  </div>
-                ))}
-              </div>
-            </Housing>
-          )}
+          {!readOnly && <DraftActivityHistory draft={draft} events={state.audit} />}
 
           {receipt && <AuditReceipt event={receipt} />}
 
@@ -406,8 +426,9 @@ function DecisionWorkspace() {
             </Button>
             <Button
               variant="danger"
+              disabled={declineReason.trim().length === 0}
               onClick={() => {
-                declineDraft(draft.id, declineReason || "No reason given.");
+                declineDraft(draft.id, declineReason.trim());
                 setDeclineOpen(false);
               }}
             >
@@ -420,9 +441,34 @@ function DecisionWorkspace() {
           rows={3}
           value={declineReason}
           onChange={(event) => setDeclineReason(event.target.value)}
-          aria-label="Reason for declining"
+          aria-label="Reason for declining (required)"
           placeholder="Already covered this in Tuesday's small group."
         />
+      </Modal>
+
+      <Modal
+        open={resetOpen}
+        onClose={() => setResetOpen(false)}
+        title="Reset this draft to the original recommendation?"
+        description="Your edits and decision on this draft are cleared. Earlier entries stay in the demo activity history."
+        footer={
+          <>
+            <Button variant="ghost" onClick={() => setResetOpen(false)}>
+              Cancel
+            </Button>
+            <Button
+              variant="danger"
+              onClick={() => {
+                resetDraft(draft.id);
+                setResetOpen(false);
+              }}
+            >
+              Reset draft
+            </Button>
+          </>
+        }
+      >
+        <p style={{ margin: 0, color: "var(--fg-muted)" }}>The original recommendation is never changed.</p>
       </Modal>
 
       <p className="micro-label" style={{ marginTop: "var(--s-16)" }}>

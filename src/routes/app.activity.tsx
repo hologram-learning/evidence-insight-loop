@@ -11,6 +11,7 @@ import { RoleGate } from "@/components/RoleGate";
 import { useDemo } from "@/lib/demo-state";
 import { formatDemoTimestamp } from "@/lib/mastery";
 import { ROLE_LABEL } from "@/lib/permissions";
+import { HISTORY_LABEL, eventBelongsToDraft } from "@/components/DecisionHistory";
 
 export const Route = createFileRoute("/app/activity")({
   component: ActivityPage,
@@ -19,21 +20,25 @@ export const Route = createFileRoute("/app/activity")({
 function ActivityPage() {
   const { state } = useDemo();
   const [filter, setFilter] = useState("all");
+  const [draftFilter, setDraftFilter] = useState("all");
+  const selectedDraft = state.interventions.find((draft) => draft.id === draftFilter);
 
   const events = [...state.audit]
     .sort((a, b) => b.timestamp.localeCompare(a.timestamp))
-    .filter((event) => filter === "all" || event.role === filter);
+    .filter((event) => filter === "all" || event.role === filter)
+    .filter((event) => !selectedDraft || eventBelongsToDraft(event, selectedDraft));
 
   return (
     <RoleGate allow={["teacher", "leader", "district"]}>
       <PageHeader
         crumbs={[{ label: "Workspace", href: "/app" }, { label: "Activity history" }]}
         title="Activity history"
-        subtitle="Every state change in this demo, with actor, role, and target."
+        subtitle={HISTORY_LABEL}
         actions={<Badge tone="amber">Local only</Badge>}
       />
 
-      <div className="stack-8" style={{ marginTop: "var(--s-16)", maxWidth: 280 }}>
+      <div className="hrow-16" style={{ marginTop: "var(--s-16)", alignItems: "flex-end" }}>
+      <div className="stack-8">
         <label className="micro-label" htmlFor="activity-role-filter">Filter by role</label>
         <Select
           id="activity-role-filter"
@@ -46,6 +51,16 @@ function ActivityPage() {
           <option value="leader">Instructional leader</option>
           <option value="district">District admin</option>
         </Select>
+      </div>
+      <div className="stack-8">
+        <label className="micro-label" htmlFor="activity-draft-filter">Filter by draft</label>
+        <Select id="activity-draft-filter" value={draftFilter} onChange={(event) => setDraftFilter(event.target.value)}>
+          <option value="all">All activity</option>
+          {state.interventions.map((draft) => (
+            <option key={draft.id} value={draft.id}>{draft.title}</option>
+          ))}
+        </Select>
+      </div>
       </div>
 
 

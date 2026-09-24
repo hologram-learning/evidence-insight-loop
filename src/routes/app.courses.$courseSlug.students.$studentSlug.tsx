@@ -9,6 +9,7 @@ import {
   Progress,
 } from "@/design-system/code-companions-0f8a99";
 import { RoleGate } from "@/components/RoleGate";
+import { SeededMasteryHistory } from "@/components/DecisionHistory";
 import { COURSES, EVIDENCE, MASTERY_RECORDS, STUDENTS } from "@/data/seed";
 import { PREREQUISITES, standardByCode } from "@/data/standards";
 import { useDemo } from "@/lib/demo-state";
@@ -86,6 +87,10 @@ function StudentEvidencePage() {
             })}
           </ul>
         </Card>
+      </div>
+
+      <div style={{ marginTop: "var(--s-24)" }}>
+        <SeededMasteryHistory students={[student]} standardCode="6.EE.A.3" />
       </div>
 
       <div className="housing" style={{ marginTop: "var(--s-24)" }}>

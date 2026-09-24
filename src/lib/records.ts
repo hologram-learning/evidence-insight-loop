@@ -1,4 +1,5 @@
-import { EVIDENCE, MASTERY_RECORDS, STANDARD_COLUMNS, STUDENTS } from "@/data/seed";
+import { EVIDENCE, MASTERY_HISTORY, MASTERY_RECORDS, STANDARD_COLUMNS, STUDENTS } from "@/data/seed";
+import { PREREQUISITES } from "@/data/standards";
 import type { MasteryState, PrerequisiteRisk, Student } from "@/types/domain";
 
 /**
@@ -99,4 +100,34 @@ export function atRiskFirst(students: Student[], groupIds: string[]): Student[] 
     return 3;
   };
   return [...students].sort((a, b) => weight(a) - weight(b));
+}
+
+export function historyFor(studentId: string, standardCode: string) {
+  return MASTERY_HISTORY.filter(
+    (point) => point.studentId === studentId && point.standardCode === standardCode,
+  ).sort((a, b) => a.observedOn.localeCompare(b.observedOn));
+}
+
+/**
+ * Direct prerequisites of a standard, each with how many of the given learners
+ * are below Secure on it. Returns [] when the standards data has no relation.
+ */
+export function prerequisiteContext(standardCode: string, students: Student[]) {
+  return PREREQUISITES.filter((relation) => relation.toCode === standardCode).map((relation) => {
+    const states = students.map((student) => masteryFor(student, relation.fromCode));
+    const assessed = states.filter((state): state is MasteryState => state !== null);
+    const belowSecure = assessed.filter((state) => state !== "secure").length;
+    return { relation, assessed: assessed.length, belowSecure };
+  });
+}
+
+/** Upstream → prerequisite → focus → downstream, built only from recorded relations. */
+export function chainFor(standardCode: string, primaryPrereq?: string): string[] {
+  const upstream = primaryPrereq
+    ? PREREQUISITES.find((relation) => relation.toCode === primaryPrereq)?.fromCode
+    : undefined;
+  const downstream = PREREQUISITES.find((relation) => relation.fromCode === standardCode)?.toCode;
+  return [upstream, primaryPrereq, standardCode, downstream].filter(
+    (code): code is string => Boolean(code),
+  );
 }

@@ -6,6 +6,7 @@ import type {
   Course,
   EvidenceArtifact,
   InterventionDraft,
+  MasteryHistoryPoint,
   MasteryRecord,
   Organization,
   Section,
@@ -346,3 +347,27 @@ export const AUDIT_SEED: AuditEvent[] = [
     description: "A 12-minute warm-up was drafted for Ms. Chen to review, edit, approve, or decline.",
   },
 ];
+
+/**
+ * Seeded mastery history (demo). Hand-authored, dated observations for the four
+ * learners in the distributive-property group on 6.EE.A.3. The latest point for
+ * each learner matches the state shown everywhere else in the workspace.
+ */
+const HISTORY_DATES = ["2026-08-28", "2026-09-02", "2026-09-04", "2026-09-08"];
+const HISTORY_SOURCES = ["Diagnostic", "Warm-up", "Exit ticket", "Checkpoint"];
+const HISTORY_STATES: Record<string, MasteryHistoryPoint["state"][]> = {
+  "stu-sophia": ["beginning", "developing", "developing", "developing"],
+  "stu-marcus": ["developing", "developing", "beginning", "developing"],
+  "stu-olivia": ["beginning", "beginning", "beginning", "beginning"],
+  "stu-daniel": ["beginning", "beginning", "developing", "developing"],
+};
+export const MASTERY_HISTORY: MasteryHistoryPoint[] = Object.entries(HISTORY_STATES).flatMap(
+  ([studentId, states]) =>
+    states.map((state, index) => ({
+      studentId,
+      standardCode: "6.EE.A.3",
+      observedOn: HISTORY_DATES[index]!,
+      state,
+      source: HISTORY_SOURCES[index]!,
+    })),
+);

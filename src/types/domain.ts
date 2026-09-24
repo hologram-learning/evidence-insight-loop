@@ -238,3 +238,12 @@ export interface PilotRequest {
   additional?: string;
   submittedOn: string;
 }
+
+/** A seeded, dated mastery observation. Demo values only — not a calculated estimate. */
+export interface MasteryHistoryPoint {
+  studentId: string;
+  standardCode: string;
+  observedOn: string;
+  state: MasteryState;
+  source: string;
+}
